@@ -21,14 +21,14 @@
                         <div class="card">
 
                             <div class="card-body">
-                                <h1>Project (#)</h1>
+                                <h1>Project (4)</h1>
                                 <div class="d-flex justify-content-between">
                                     <ul class="nav nav-pills" id="myTab3" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active" id="home-tab3" href="#">Active</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Archived</a>
+                                            <a class="nav-link" href="{{ url('project/archive') }}">Archived</a>
                                         </li>
                                     </ul>
                                     <div>
@@ -87,8 +87,8 @@
                                                             Action
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">Edit Project</a>
-                                                            <a class="dropdown-item" href="#">Edit Budget</a>
+                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editProject">Edit Project</a>
+                                                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#editBudget">Edit Budget</a>
                                                             <a class="dropdown-item" href="#">Archive Project</a>
                                                             <a class="dropdown-item" href="#">Duplicate Project</a>
                                                             <a class="dropdown-item" href="#">Delete Project</a>
@@ -129,8 +129,8 @@
                                                             Action
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">Edit Project</a>
-                                                            <a class="dropdown-item" href="#">Edit Budget</a>
+                                                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#editProject">Edit Project</a>
+                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editBudget">Edit Budget</a>
                                                             <a class="dropdown-item" href="#">Archive Project</a>
                                                             <a class="dropdown-item" href="#">Duplicate Project</a>
                                                             <a class="dropdown-item" href="#">Delete Project</a>
@@ -170,8 +170,8 @@
                                                             Action
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">Edit Project</a>
-                                                            <a class="dropdown-item" href="#">Edit Budget</a>
+                                                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#editProject">Edit Project</a>
+                                                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#editBudget">Edit Budget</a>
                                                             <a class="dropdown-item" href="#">Archive Project</a>
                                                             <a class="dropdown-item" href="#">Duplicate Project</a>
                                                             <a class="dropdown-item" href="#">Delete Project</a>
@@ -217,8 +217,8 @@
                                                             Action
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">Edit Project</a>
-                                                            <a class="dropdown-item" href="#">Edit Budget</a>
+                                                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#editProject">Edit Project</a>
+                                                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#editBudget">Edit Budget</a>
                                                             <a class="dropdown-item" href="#">Archive Project</a>
                                                             <a class="dropdown-item" href="#">Duplicate Project</a>
                                                             <a class="dropdown-item" href="#">Delete Project</a>
@@ -307,6 +307,81 @@
                 </div>
             </div>
         </div>
+{{-- Update Modal --}}
+        <div class="modal fade" tabindex="-1" role="dialog" id="editProject">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Project</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Organization</label>
+                                <input readonly type="text" class="form-control" value="Mekakushi Gng.">
+                            </div>
+                            <div class="form-group">
+                                <label>Name *</label>
+                                <input type="text" id="project-name" name="project-name" class="form-control"
+                                    value="">
+                            </div>
+                            <div class="form-group">
+                                <label>Client</label>
+                                <select id="client" name="client" class="form-control selectric">
+                                    <option>City Bussiness</option>
+                                    <option>AOmega Eye</option>
+                                    <option>StripSk</option>
+                                </select>
+                            </div>
+                            <h3>Team</h3>
+                            <div class="form-group">
+                                <h6>Manager</h6>
+                                <label>Oversees and manage project</label>
+                                <select id="edit-manager" name="edit-manager" class="form-control select2" multiple="">
+                                    <option value="Vito">Vito</option>
+                                    <option value="Louis">Louis</option>
+                                    <option value="Rizki">Rizki</option>
+                                    <option value="Firman">Firman</option>
+                                    <option value="Hanif/Amik">Hanif/Amik</option>
+                                    <option value="Hendri">Hendri</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <h6>User</h6>
+                                <label>Work on Project, will not see other users</label>
+                                <select id="edit-user" name="edit-user" class="form-control select2" multiple="">
+                                    <option value="Vito">Vito</option>
+                                    <option value="Louis">Louis</option>
+                                    <option value="Rizki">Rizki</option>
+                                    <option value="Firman">Firman</option>
+                                    <option value="Hanif/Amik">Hanif/Amik</option>
+                                    <option value="Hendri">Hendri</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <h6>Viwer</h6>
+                                <label>can view team reporst for this project</label>
+                                <select id="edit-view" name="edit-view" class="form-control select2" multiple="">
+                                    <option value="Vito">Vito</option>
+                                    <option value="Louis">Louis</option>
+                                    <option value="Rizki">Rizki</option>
+                                    <option value="Firman">Firman</option>
+                                    <option value="Hanif/Amik">Hanif/Amik</option>
+                                    <option value="Hendri">Hendri</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-whitesmoke br">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <!-- Modal Project -->
         <div class="modal fade" tabindex="-1" role="dialog" id="newProject">
             <div class="modal-dialog" role="document">
@@ -341,36 +416,36 @@
                                 <h6>Manager</h6>
                                 <label>Oversees and manage project</label>
                                 <select id="managers" name="managers" class="form-control select2" multiple="">
-                                    <option>Vito</option>
-                                    <option>Louis</option>
-                                    <option>Rizki</option>
-                                    <option>Firman</option>
-                                    <option>Hanif/Amik</option>
-                                    <option>Hendr</option>
+                                    <option value="Vito">Vito</option>
+                                    <option value="Louis">Louis</option>
+                                    <option value="Rizki">Rizki</option>
+                                    <option value="Firman">Firman</option>
+                                    <option value="Hanif/Amik">Hanif/Amik</option>
+                                    <option value="Hendri">Hendri</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <h6>User</h6>
                                 <label>Work on Project, will not see other users</label>
                                 <select id="users" name="users" class="form-control select2" multiple="">
-                                    <option>Vito</option>
-                                    <option>Louis</option>
-                                    <option>Rizki</option>
-                                    <option>Firman</option>
-                                    <option>Hanif/Amik</option>
-                                    <option>Hendr</option>
+                                    <option value="Vito">Vito</option>
+                                    <option value="Louis">Louis</option>
+                                    <option value="Rizki">Rizki</option>
+                                    <option value="Firman">Firman</option>
+                                    <option value="Hanif/Amik">Hanif/Amik</option>
+                                    <option value="Hendri">Hendri</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <h6>Viwer</h6>
                                 <label>can view team reporst for this project</label>
-                                <select id="manager" name="manager" class="form-control select2" multiple="">
-                                    <option>Vito</option>
-                                    <option>Louis</option>
-                                    <option>Rizki</option>
-                                    <option>Firman</option>
-                                    <option>Hanif/Amik</option>
-                                    <option>Hendr</option>
+                                <select id="viewe" name="viewe" class="form-control select2" multiple="">
+                                    <option value="Vito">Vito</option>
+                                    <option value="Louis">Louis</option>
+                                    <option value="Rizki">Rizki</option>
+                                    <option value="Firman">Firman</option>
+                                    <option value="Hanif/Amik">Hanif/Amik</option>
+                                    <option value="Hendri">Hendri</option>
                                 </select>
                             </div>
                         </div>

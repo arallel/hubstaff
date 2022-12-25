@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('blank-page', function () {
-    return view('pages.blank-page',['type_menu' => '']);
+Route::get('project/all', function () {
+    return view('pages.project-all');
+});
+
+Route::get('project/archive',function() {
+    return view('pages.project-archive');
 });
