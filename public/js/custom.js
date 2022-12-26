@@ -6,3 +6,10 @@
  */
 
 "use strict";
+
+function newMailInvite() {
+    const node = document.getElementById("mail-invite");
+    const clone = node.cloneNode(true);
+    document.getElementById('mail-container').appendChild(clone);
+    
+}

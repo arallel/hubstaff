@@ -25,7 +25,7 @@
                                 <div class="d-flex justify-content-between">
                                     <ul class="nav nav-pills" id="myTab3" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link" id="home-tab3" href="#">Active</a>
+                                            <a class="nav-link" id="home-tab3" href="{{ url('project/all') }}">Active</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link active" href="#">Archived</a>

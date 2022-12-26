@@ -30,7 +30,7 @@
                             <div class="d-flex justify-content-between">
                                 <ul class="nav nav-pills" id="myTab3" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab3" href="#">Active</a>
+                                        <a class="nav-link active" id="home-tab3" href="{{ url('project/all') }}">Active</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('project/archive') }}">Archived</a>
@@ -112,7 +112,8 @@
                                                             <div class="progress-bar bg-success" data-width="100"></div>
                                                         </div>
                                                         <button class="btn" data-toggle="modal"
-                                                            data-target="#editProject{{ $d->project_id }}">Edit Budget</button>
+                                                            data-target="#editProject{{ $d->project_id }}">Edit
+                                                            Budget</button>
                                                     </td>
 
                                                     <td><i class="fa-regular fa-circle-check"></i></td>
@@ -130,10 +131,12 @@
                                                                 data-toggle="modal">Edit Project</a>
                                                             <a class="dropdown-item" href="#">Archive Project</a>
                                                             <a class="dropdown-item" href="#">Duplicate Project</a>
-                                                            <form action="{{ route('project.delete',$d->project_id) }}" method="POST">
+                                                            <form action="{{ route('project.delete', $d->project_id) }}"
+                                                                method="POST">
                                                                 @method('delete')
                                                                 @csrf
-                                                                <a onclick="this.parentNode.submit();" class="dropdown-item" href="#">Delete Project</a>
+                                                                <a onclick="this.parentNode.submit();" class="dropdown-item"
+                                                                    href="#">Delete Project</a>
                                                             </form>
                                                         </div>
                                                     </td>
@@ -166,11 +169,18 @@
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Client</label>
-                                                                        <select name="client_id" class="form-control" id="">
+                                                                        <select name="client_id" class="form-control"
+                                                                            id="">
                                                                             <option selected disabled>Select Client</option>
-                                                                            <option  {{ $d->client_id == '1' ? 'selected' : '' }} value="1">City Bussiness</option>
-                                                                            <option  {{ $d->client_id == '2' ? 'selected' : '' }} value="2">AOmega Eye</option>
-                                                                            <option  {{ $d->client_id == '3' ? 'selected' : '' }} value="3">StripSk</option>
+                                                                            <option
+                                                                                {{ $d->client_id == '1' ? 'selected' : '' }}
+                                                                                value="1">City Bussiness</option>
+                                                                            <option
+                                                                                {{ $d->client_id == '2' ? 'selected' : '' }}
+                                                                                value="2">AOmega Eye</option>
+                                                                            <option
+                                                                                {{ $d->client_id == '3' ? 'selected' : '' }}
+                                                                                value="3">StripSk</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="mb-4">
@@ -239,7 +249,7 @@
                                                                     <div class="form-group">
                                                                         <h6>Manager</h6>
                                                                         <label>Oversees and manage project</label>
-                                                                        <select id="managers" name="manager"
+                                                                        <select id="managers{{ $d->project_id }}" name="manager{{ $d->project_id }}"
                                                                             class="form-control select2" multiple="">
                                                                             <option value="Vito">Vito</option>
                                                                             <option value="Louis">Louis</option>
@@ -254,7 +264,7 @@
                                                                         <h6>User</h6>
                                                                         <label>Work on Project, will not see other
                                                                             users</label>
-                                                                        <select id="users" name="user_id"
+                                                                        <select id="users{{ $d->project_id }}" name="user_id{{ $d->project_id }}"
                                                                             class="form-control select2" multiple="">
                                                                             <option value="Vito">Vito</option>
                                                                             <option value="Louis">Louis</option>
@@ -268,7 +278,7 @@
                                                                         <h6>Viwer</h6>
                                                                         <label>can view team reporst for this
                                                                             project</label>
-                                                                        <select id="viewe" name="viewer"
+                                                                        <select id="viewer{{ $d->project_id }}" name="viewer{{ $d->project_id }}"
                                                                             class="form-control select2" multiple="">
                                                                             <option value="Vito">Vito</option>
                                                                             <option value="Louis">Louis</option>
@@ -305,7 +315,7 @@
         </div>
 
 
-        
+
 
 
         <!-- Modal Project -->

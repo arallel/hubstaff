@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // Route::get('project/all', function () {
 //     return view('pages.project-all');
 // });
@@ -32,3 +33,16 @@ Route::controller(ProjectController::class)->group(function () {
 
 Route::view('register', 'auth.register');
 Route::view('log', 'auth.login');
+
+Route::get('activity', function() {
+    return view('admin.project.activity',['type_menu' => 'activity']);
+});
+
+Route::get('members', function() {
+    return view('admin.project.member',['type_menu' => 'People']);
+});
+
+Route::get('invites', function() {
+    return view('admin.project.invites', ['type_menu' => 'People']);
+});
+
