@@ -12,13 +12,9 @@
                     href="{{ url('dashboard') }}"><i class="fas fa-fire"></i> <span>Dashboard</span></a>
             </li>
             <li class="menu-header">Admin</li>
-            <li class="{{ Request::is('project/all') ? 'active' : '' }}">
+            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="fas fa-solid fa-check-to-slot"></i><span>Project</span></a>
-            </li>
-            <li class="{{ Request::is('people/all') ? 'active' : '' }}">
-                <a class="nav-link"
-                    href="{{ url('blank-page') }}"><i class="fas fa-solid fa-users"></i><span>People</span></a>
+                    href="{{ url('blank-page') }}"><i class="fa-solid fa-rectangle-history"></i><span>Project</span></a>
             </li>
         </ul>
 

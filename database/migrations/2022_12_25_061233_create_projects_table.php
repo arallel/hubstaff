@@ -14,19 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id('project_id');
-            $table->string('project_name');
+            $table->id();
+            $table->string('name');
             $table->string('budget')->nullable();
-            $table->enum('budget_type',['total_cost','total_hours'])->nullable();
-            $table->enum('budget_based',['bill_rate','pay_rate'])->nullable();
-            $table->string('project_status')->nullable();
+            $table->string('budget_type')->nullabled();
+            $table->string('budget_based')->nullabled();
+            $table->string('project_status')->default('Active');
             $table->date('start')->nullable();
             $table->string('notify_at')->nullable();
-            $table->ForeignId('teams')->nullable();
-            $table->ForeignId('manager')->nullable();
-            $table->ForeignId('user_id')->nullable();
-            $table->ForeignId('viewer')->nullable();
-            $table->string('client_id');
             $table->timestamps();
         });
     }

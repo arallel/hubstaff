@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('project/all', function () {
-//     return view('pages.project-all');
-// });
-
-Route::controller(ProjectController::class)->group(function () {
-    Route::get('/project/all', 'index')->name('project.index');
-    Route::get('project/archive', 'archive');
-    Route::post('/project/store', 'store')->name('project.store');
-    Route::put('/project/update/{project_id}', 'update')->name('project.update');
-    Route::delete('/project/delete/{project_id}', 'delete')->name('project.delete');
+Route::get('project/all', function () {
+    return view('pages.project-all');
 });
 
-Route::view('register', 'auth.register');
-Route::view('log', 'auth.login');
+Route::get('project/archive',function() {
+    return view('pages.project-archive');
+});
