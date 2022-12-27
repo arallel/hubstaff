@@ -19,10 +19,10 @@ class invitmember extends Mailable
      *
      * @return void
      */
-    public $data;
-    public function __construct($data)
+    public $invitational;
+    public function __construct()
     {
-        $this->data = $data;
+        $this->invitational = invitational::limit(1)->first();
     }
 
     /**

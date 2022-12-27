@@ -40,10 +40,10 @@ Route::controller(ProjectController::class)->group(function () {
     Route::delete('/project/delete/{project_id}', 'delete')->name('project.delete');
 });
 Route::controller(membersController::class)->group(function () {
-    Route::post('/mail', 'store')->name('members.mail');
+    Route::post('/members/send/invite/mail', 'store')->name('members.mail');
     Route::get('members','index')->name('members.index');
     Route::get('invites','invites')->name('members.invites');
-   
+   Route::get('invitation/{token}/{company}','requestregister')->name('invit.request');
 });
 
 Route::view('register', 'auth.register');
@@ -53,5 +53,5 @@ Route::get('activity', function() {
     return view('admin.project.activity',['type_menu' => 'activity']);
 });
 
-// Route::view('mail','mail.invitmember');
+// Route::view('','mail.invitmember');
 

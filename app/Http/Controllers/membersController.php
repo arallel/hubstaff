@@ -21,6 +21,7 @@ class membersController extends Controller
     public function index()
     {
         $data = User::all();
+
         // dd($data);
         return view('admin.project.member',compact('data'));
     }
@@ -51,7 +52,7 @@ class membersController extends Controller
     {
         $email = $request->email;
         $payrate = $request->payrate;
-        // dd($payrate);
+        // dd($payrate)
 
         for ($i=0; $i < count($email) ; $i++) { 
             $token = str::random(6);
@@ -62,11 +63,18 @@ class membersController extends Controller
              'role' => $request->role, 
              'payrate' => $payrate[$i], 
             ]);
-            $invitational = invitational::where('email','=',$email)->get();
+            $invitational = invitational::where('email','=',$email[$i])->first();
+            // dd($invitational);
             Mail::to($email[$i])->send(new invitmember($invitational));
         }
         
         dd('data dikirim');
+    }
+    public function requestregister($token,$company)
+    {
+      $data = invitational::where('token','=',$token)->Where('company','=',$company)->limit(1)->first();
+    //   dd($data);
+      return view('admin.member.invitelogin',compact('data'));
     }
 
     /**p
