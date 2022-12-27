@@ -19,9 +19,11 @@ class membersController extends Controller
      */
     public function index()
     {
-        $response = Http::get(env('url_api').'/members/all');
+        // $response = Http::get(env('url_api').'/members/all');
+        $response = Http::get('http://127.0.0.1:8080/api/members/all');
         $data = $response->json();
-        $response = Http::get(env('url_api').'/project/all');
+        // $response = Http::get(env('url_api').'/project/all');
+        $response = Http::get('http://127.0.0.1:8080/api/project/all');
         $project = $response->json();
 
         // dd($data);

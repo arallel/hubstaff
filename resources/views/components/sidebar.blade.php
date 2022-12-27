@@ -55,7 +55,7 @@
                     <li class="nk-menu-item">
                         <a href="{{ route('members.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
-                            <span class="nk-menu-text">Project</span>
+                            <span class="nk-menu-text">People</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                 </ul><!-- .nk-menu -->

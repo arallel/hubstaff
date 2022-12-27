@@ -12,7 +12,8 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $response = Http::get(env('url_api').'/project/all');
+        // $response = Http::get(env('url_api').'/project/all');
+        $response = Http::get('http://127.0.0.1:8080/api/project/all');
         $data = $response->json();
          return view('admin.project.project-all',['data'=> $data]); 
 
