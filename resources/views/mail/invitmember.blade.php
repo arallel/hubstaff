@@ -127,19 +127,19 @@
                    c0-1.8-1.3-3.4-3.2-3.7C144.6,308.8,139.4,305.5,136.4,300.3" />
                     </svg>
                     <div class="card">
-                            <h3><b> parallel is using Hubstaff to track time for their company.</b></h3>
-                            <p style="font-size: 13px ">This email is being sent to you because parallel is using
+                            <h3><b> {{ $invitational->company }} is using Hubstaff to track time for their company.</b></h3>
+                            <p style="font-size: 13px ">This email is being sent to you because {{ $invitational->company }} is using
                                 Hubstaff to track time and projects /
-                                work orders and they've invited you into parallel.</p>
+                                work orders and they've invited you into {{ $invitational->company }}.</p>
                             <p>Hubstaff makes it easy for virtual teams to work more efficiently by tracking time and
                                 projects / work orders. Over 8,000 remote teams use it daily</p>
                             <div class="text-center">
-                                <a class="btn" >Accept Invite</a>
+                                <a href="{{ url('http://127.0.0.1:8000/invitation/'.$invitational->token.'/'.$invitational->company) }}" class="btn" >Accept Invite</a>
                             </div>
                             <p style="font-size: 13px;">You can also copy and paste the below link into your browser
                                 address bar.<br>
                                 <a
-                                    href="https://app.hubstaff.com/invites/JcOw8122IJP-sszNjGA_g7th_lOW7k8D9ghP3VJa784/accept">https://app.hubstaff.com/invites/JcOw8122IJP-sszNjGA_g7th_lOW7k8D9ghP3VJa784/accept</a><br>
+                                    href="{{ url('http://127.0.0.1:8000/invitation/'.$invitational->token.'/'.$invitational->company) }}">{{ url('http://127.0.0.1:8000/invitation/'.$invitational->token.'/'.$invitational->company) }}</a><br>
 
                                 What is Hubstaff? Here's a quick guide to get you started - <a
                                     href="http://support.hubstaff.com/quick-start-guide-for-new-users/">http://support.hubstaff.com/quick-start-guide-for-new-users/</a>

@@ -12,9 +12,9 @@ class ProjectController extends Controller
 {
     public function index()
     {
-         $data = Project::all(); 
-        // $response = Http::get('http://127.0.0.1:8080/api/project/all');
-        // $data = $response->json();
+        //  $data = Project::all(); 
+        $response = Http::get('http://127.0.0.1:8080/api/project/all');
+        $data = $response->json();
         
     //    dd($response->collect());
 
