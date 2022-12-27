@@ -25,13 +25,6 @@ Route::get('/dashboard', function () {
 // });
 
 Route::controller(ProjectController::class)->group(function () {
-    Route::get('/members', 'index')->name('member.index');
-    Route::get('member/archive', 'archive');
-    Route::post('/member/store', 'store')->name('member.store');
-    Route::put('/member/update/{member_id}', 'update')->name('member.update');
-    Route::delete('/member/delete/{member_id}', 'delete')->name('member.delete');
-});
-Route::controller(ProjectController::class)->group(function () {
     Route::get('/project/all', 'index')->name('project.index');
     Route::get('project/archive', 'archive');
     Route::post('/project/store', 'store')->name('project.store');

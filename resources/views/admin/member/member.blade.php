@@ -55,10 +55,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach ($data as $d)
+                                             @foreach ($data as $d)
+                                             @dd($d)
                                                 <tr>
                                                     <td>
-                                                        <div class="sort-handler">
+                                                         <div class="sort-handler">
                                                             <i class="fas fa-th"></i>
                                                         </div>
                                                     </td>
@@ -147,7 +148,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            @endforeach --}}
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -205,11 +206,11 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Project</label>
-                                                        <select class="form-control select2" multiple="">
-                                                            <option>Project 1</option>
-                                                            <option>Project 1</option>
-                                                            <option>Project 1</option>
-                            
+                                                        <select class="form-control select2" name="project_id" multiple="">
+                                                            <option selected disabled>Select Project</option>
+                                                            @foreach ($project as $p)
+                                                            <option value="{{ $p['project_id'] }}">{{ $p['project_name'] }}</option>                            
+                                                            @endforeach
                                                         </select>
                                                     </div>
                             
