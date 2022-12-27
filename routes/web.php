@@ -49,8 +49,15 @@ Route::controller(membersController::class)->group(function () {
 Route::view('register', 'auth.register');
 Route::view('log', 'auth.login');
 
-Route::get('activity', function() {
-    return view('admin.project.activity',['type_menu' => 'activity']);
+Route::get('screnshot', function() {
+    return view('admin.project.activity');
+})->name('screnshot');
+
+Route::get('setting', function () {
+    return view('setting');
+});
+Route::get('display', function () {
+    return view('display');
 });
 
 // Route::view('mail','mail.invitmember');
