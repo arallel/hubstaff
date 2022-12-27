@@ -8,8 +8,7 @@ use App\Models\invitational;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\invitmember;
 use Illuminate\Support\Str;
-
-
+use Illuminate\Support\Facades\Http;
 
 class membersController extends Controller
 {
@@ -20,10 +19,13 @@ class membersController extends Controller
      */
     public function index()
     {
-        $data = User::all();
+        $response = Http::get(env('url_api').'/members/all');
+        $data = $response->json();
+        $response = Http::get(env('url_api').'/project/all');
+        $project = $response->json();
 
         // dd($data);
-        return view('admin.project.member',compact('data'));
+        return view('admin.member.member',compact('data','project'));
     }
     public function invites()
     {

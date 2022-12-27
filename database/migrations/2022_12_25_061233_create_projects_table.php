@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('project_status')->nullable();
             $table->date('start')->nullable();
             $table->string('notify_at')->nullable();
-            $table->ForeignId('teams')->nullable();
-            $table->ForeignId('manager')->nullable();
-            $table->ForeignId('user_id')->nullable();
-            $table->ForeignId('viewer')->nullable();
+            $table->string('teams')->nullable();
+            $table->string('manager')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('viewer')->nullable();
             $table->string('client_id');
             $table->timestamps();
         });

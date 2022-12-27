@@ -12,26 +12,24 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        //  $data = Project::all(); 
-        $response = Http::get('http://127.0.0.1:8080/api/project/all');
+        $response = Http::get(env('url_api').'/project/all');
         $data = $response->json();
-        
-    //    dd($response->collect());
-
-        //  return response()->json(ProjectResource::collection($response), 200);
          return view('admin.project.project-all',['data'=> $data]); 
 
 
     }
     public function store(Request $request)
-    {
-        
-        // $this->validate($request,[
-        //   'project_name'  => 'required'
+    {   
+        // $data = Project::create([
+        //     'project_name' => $request->project_name,
+        //     'budget' => $request->budget,
+        //     'budget_type' => $request->budget_type,
+        //     'budget_based' => $request->budget_based,
+        //     'project_status' => '0',
+        //     'notify_at' => $request->notify_at,
+        //     'client_id' => $request->client_id,
         // ]);
-
-        
-        $data = Project::create([
+        Http::post(env('url_api').'project/store', [
             'project_name' => $request->project_name,
             'budget' => $request->budget,
             'budget_type' => $request->budget_type,
