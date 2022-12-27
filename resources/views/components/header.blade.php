@@ -1,267 +1,303 @@
-<div class="navbar-bg"></div>
-<nav class="navbar navbar-expand-lg main-navbar">
-    <form class="form-inline mr-auto">
-        <ul class="navbar-nav mr-3">
-            <li><a href="#"
-                    data-toggle="sidebar"
-                    class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <li><a href="#"
-                    data-toggle="search"
-                    class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
-        </ul>
-        <div class="search-element">
-        
-            
-            <div class="search-backdrop"></div>
-            <div class="search-result">
-                <div class="search-header">
-                    Histories
-                </div>
-                <div class="search-item">
-                    <a href="#">How to hack NASA using CSS</a>
-                    <a href="#"
-                        class="search-close"><i class="fas fa-times"></i></a>
-                </div>
-                <div class="search-item">
-                    <a href="#">Kodinger.com</a>
-                    <a href="#"
-                        class="search-close"><i class="fas fa-times"></i></a>
-                </div>
-                <div class="search-item">
-                    <a href="#">#Stisla</a>
-                    <a href="#"
-                        class="search-close"><i class="fas fa-times"></i></a>
-                </div>
-                <div class="search-header">
-                    Result
-                </div>
-                <div class="search-item">
-                    <a href="#">
-                        <img class="mr-3 rounded"
-                            width="30"
-                            src="{{ asset('img/products/product-3-50.png') }}"
-                            alt="product">
-                        oPhone S9 Limited Edition
-                    </a>
-                </div>
-                <div class="search-item">
-                    <a href="#">
-                        <img class="mr-3 rounded"
-                            width="30"
-                            src="{{ asset('img/products/product-2-50.png') }}"
-                            alt="product">
-                        Drone X2 New Gen-7
-                    </a>
-                </div>
-                <div class="search-item">
-                    <a href="#">
-                        <img class="mr-3 rounded"
-                            width="30"
-                            src="{{ asset('img/products/product-1-50.png') }}"
-                            alt="product">
-                        Headphone Blitz
-                    </a>
-                </div>
-                <div class="search-header">
-                    Projects
-                </div>
-                <div class="search-item">
-                    <a href="#">
-                        <div class="search-icon bg-danger mr-3 text-white">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        Stisla Admin Template
-                    </a>
-                </div>
-                <div class="search-item">
-                    <a href="#">
-                        <div class="search-icon bg-primary mr-3 text-white">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        Create a new Homepage Design
-                    </a>
-                </div>
+<div class="nk-header nk-header-fixed is-light">
+    <div class="container-fluid">
+        <div class="nk-header-wrap">
+            <div class="nk-menu-trigger d-xl-none ms-n1">
+                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
             </div>
-        </div>
-    </form>
-    <ul class="navbar-nav navbar-right">
-        <li class="dropdown dropdown-list-toggle"><a href="#"
-                data-toggle="dropdown"
-                class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right">
-                <div class="dropdown-header">Messages
-                    <div class="float-right">
-                        <a href="#">Mark All As Read</a>
-                    </div>
-                </div>
-                <div class="dropdown-list-content dropdown-list-message">
-                    <a href="#"
-                        class="dropdown-item dropdown-item-unread">
-                        <div class="dropdown-item-avatar">
-                            <img alt="image"
-                                src="{{ asset('img/avatar/avatar-1.png') }}"
-                                class="rounded-circle">
-                            <div class="is-online"></div>
+            <div class="nk-header-brand d-xl-none">
+                <a href="html/index.html" class="logo-link">
+                    <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
+                    <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                </a>
+            </div><!-- .nk-header-brand -->
+            <div class="nk-header-search ms-3 ms-xl-0">
+                <em class="icon ni ni-search"></em>
+                <input type="text" class="form-control border-transparent form-focus-none" placeholder="Search anything">
+            </div><!-- .nk-header-news -->
+            <div class="nk-header-tools">
+                <ul class="nk-quick-nav">
+                    <li class="dropdown language-dropdown d-none d-sm-block me-n1">
+                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                            <div class="quick-icon border border-light">
+                                <img class="icon" src="./images/flags/english-sq.png" alt="">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-s1">
+                            <ul class="language-list">
+                                <li>
+                                    <a href="#" class="language-item">
+                                        <img src="./images/flags/english.png" alt="" class="language-flag">
+                                        <span class="language-name">English</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="language-item">
+                                        <img src="./images/flags/spanish.png" alt="" class="language-flag">
+                                        <span class="language-name">Español</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="language-item">
+                                        <img src="./images/flags/french.png" alt="" class="language-flag">
+                                        <span class="language-name">Français</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="language-item">
+                                        <img src="./images/flags/turkey.png" alt="" class="language-flag">
+                                        <span class="language-name">Türkçe</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="dropdown-item-desc">
-                            <b>Kusnaedi</b>
-                            <p>Hello, Bro!</p>
-                            <div class="time">10 Hours Ago</div>
+                    </li><!-- .dropdown -->
+                    <li class="dropdown chats-dropdown hide-mb-xs">
+                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                            <div class="icon-status icon-status-na"><em class="icon ni ni-comments"></em></div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end">
+                            <div class="dropdown-head">
+                                <span class="sub-title nk-dropdown-title">Recent Chats</span>
+                                <a href="#">Setting</a>
+                            </div>
+                            <div class="dropdown-body">
+                                <ul class="chat-list">
+                                    <li class="chat-item">
+                                        <a class="chat-link" href="html/apps-chats.html">
+                                            <div class="chat-media user-avatar">
+                                                <span>IH</span>
+                                                <span class="status dot dot-lg dot-gray"></span>
+                                            </div>
+                                            <div class="chat-info">
+                                                <div class="chat-from">
+                                                    <div class="name">Iliash Hossain</div>
+                                                    <span class="time">Now</span>
+                                                </div>
+                                                <div class="chat-context">
+                                                    <div class="text">You: Please confrim if you got my last messages.</div>
+                                                    <div class="status delivered">
+                                                        <em class="icon ni ni-check-circle-fill"></em>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li><!-- .chat-item -->
+                                    <li class="chat-item is-unread">
+                                        <a class="chat-link" href="html/apps-chats.html">
+                                            <div class="chat-media user-avatar bg-pink">
+                                                <span>AB</span>
+                                                <span class="status dot dot-lg dot-success"></span>
+                                            </div>
+                                            <div class="chat-info">
+                                                <div class="chat-from">
+                                                    <div class="name">Abu Bin Ishtiyak</div>
+                                                    <span class="time">4:49 AM</span>
+                                                </div>
+                                                <div class="chat-context">
+                                                    <div class="text">Hi, I am Ishtiyak, can you help me with this problem ?</div>
+                                                    <div class="status unread">
+                                                        <em class="icon ni ni-bullet-fill"></em>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li><!-- .chat-item -->
+                                    <li class="chat-item">
+                                        <a class="chat-link" href="html/apps-chats.html">
+                                            <div class="chat-media user-avatar">
+                                                <img src="./images/avatar/b-sm.jpg" alt="">
+                                            </div>
+                                            <div class="chat-info">
+                                                <div class="chat-from">
+                                                    <div class="name">George Philips</div>
+                                                    <span class="time">6 Apr</span>
+                                                </div>
+                                                <div class="chat-context">
+                                                    <div class="text">Have you seens the claim from Rose?</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li><!-- .chat-item -->
+                                    <li class="chat-item">
+                                        <a class="chat-link" href="html/apps-chats.html">
+                                            <div class="chat-media user-avatar user-avatar-multiple">
+                                                <div class="user-avatar">
+                                                    <img src="./images/avatar/c-sm.jpg" alt="">
+                                                </div>
+                                                <div class="user-avatar">
+                                                    <span>AB</span>
+                                                </div>
+                                            </div>
+                                            <div class="chat-info">
+                                                <div class="chat-from">
+                                                    <div class="name">Softnio Group</div>
+                                                    <span class="time">27 Mar</span>
+                                                </div>
+                                                <div class="chat-context">
+                                                    <div class="text">You: I just bought a new computer but i am having some problem</div>
+                                                    <div class="status sent">
+                                                        <em class="icon ni ni-check-circle"></em>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li><!-- .chat-item -->
+                                    <li class="chat-item">
+                                        <a class="chat-link" href="html/apps-chats.html">
+                                            <div class="chat-media user-avatar">
+                                                <img src="./images/avatar/a-sm.jpg" alt="">
+                                                <span class="status dot dot-lg dot-success"></span>
+                                            </div>
+                                            <div class="chat-info">
+                                                <div class="chat-from">
+                                                    <div class="name">Larry Hughes</div>
+                                                    <span class="time">3 Apr</span>
+                                                </div>
+                                                <div class="chat-context">
+                                                    <div class="text">Hi Frank! How is you doing?</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li><!-- .chat-item -->
+                                    <li class="chat-item">
+                                        <a class="chat-link" href="html/apps-chats.html">
+                                            <div class="chat-media user-avatar bg-purple">
+                                                <span>TW</span>
+                                            </div>
+                                            <div class="chat-info">
+                                                <div class="chat-from">
+                                                    <div class="name">Tammy Wilson</div>
+                                                    <span class="time">27 Mar</span>
+                                                </div>
+                                                <div class="chat-context">
+                                                    <div class="text">You: I just bought a new computer but i am having some problem</div>
+                                                    <div class="status sent">
+                                                        <em class="icon ni ni-check-circle"></em>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li><!-- .chat-item -->
+                                </ul><!-- .chat-list -->
+                            </div><!-- .nk-dropdown-body -->
+                            <div class="dropdown-foot center">
+                                <a href="html/apps-chats.html">View All</a>
+                            </div>
                         </div>
-                    </a>
-                    <a href="#"
-                        class="dropdown-item dropdown-item-unread">
-                        <div class="dropdown-item-avatar">
-                            <img alt="image"
-                                src="{{ asset('img/avatar/avatar-2.png') }}"
-                                class="rounded-circle">
+                    </li>
+                    <li class="dropdown notification-dropdown">
+                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                            <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end">
+                            <div class="dropdown-head">
+                                <span class="sub-title nk-dropdown-title">Notifications</span>
+                                <a href="#">Mark All as Read</a>
+                            </div>
+                            <div class="dropdown-body">
+                                <div class="nk-notification">
+                                    <div class="nk-notification-item dropdown-inner">
+                                        <div class="nk-notification-icon">
+                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                        </div>
+                                        <div class="nk-notification-content">
+                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span></div>
+                                            <div class="nk-notification-time">2 hrs ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="nk-notification-item dropdown-inner">
+                                        <div class="nk-notification-icon">
+                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                        </div>
+                                        <div class="nk-notification-content">
+                                            <div class="nk-notification-text">Your <span>Deposit Order</span> is placed</div>
+                                            <div class="nk-notification-time">2 hrs ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="nk-notification-item dropdown-inner">
+                                        <div class="nk-notification-icon">
+                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                        </div>
+                                        <div class="nk-notification-content">
+                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span></div>
+                                            <div class="nk-notification-time">2 hrs ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="nk-notification-item dropdown-inner">
+                                        <div class="nk-notification-icon">
+                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                        </div>
+                                        <div class="nk-notification-content">
+                                            <div class="nk-notification-text">Your <span>Deposit Order</span> is placed</div>
+                                            <div class="nk-notification-time">2 hrs ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="nk-notification-item dropdown-inner">
+                                        <div class="nk-notification-icon">
+                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                        </div>
+                                        <div class="nk-notification-content">
+                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span></div>
+                                            <div class="nk-notification-time">2 hrs ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="nk-notification-item dropdown-inner">
+                                        <div class="nk-notification-icon">
+                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                        </div>
+                                        <div class="nk-notification-content">
+                                            <div class="nk-notification-text">Your <span>Deposit Order</span> is placed</div>
+                                            <div class="nk-notification-time">2 hrs ago</div>
+                                        </div>
+                                    </div>
+                                </div><!-- .nk-notification -->
+                            </div><!-- .nk-dropdown-body -->
+                            <div class="dropdown-foot center">
+                                <a href="#">View All</a>
+                            </div>
                         </div>
-                        <div class="dropdown-item-desc">
-                            <b>Dedik Sugiharto</b>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                            <div class="time">12 Hours Ago</div>
+                    </li>
+                    <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle me-n1" data-bs-toggle="dropdown">
+                            <div class="user-toggle">
+                                <div class="user-avatar sm">
+                                    <em class="icon ni ni-user-alt"></em>
+                                </div>
+                                <div class="user-info d-none d-xl-block">
+                                    <div class="user-status user-status-unverified">Unverified</div>
+                                    <div class="user-name dropdown-indicator">Abu Bin Ishityak</div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-end">
+                            <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                <div class="user-card">
+                                    <div class="user-avatar">
+                                        <span>AB</span>
+                                    </div>
+                                    <div class="user-info">
+                                        <span class="lead-text">Abu Bin Ishtiyak</span>
+                                        <span class="sub-text">info@softnio.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-inner">
+                                <ul class="link-list">
+                                    <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                    <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                                    <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
+                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-inner">
+                                <ul class="link-list">
+                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </a>
-                    <a href="#"
-                        class="dropdown-item dropdown-item-unread">
-                        <div class="dropdown-item-avatar">
-                            <img alt="image"
-                                src="{{ asset('img/avatar/avatar-3.png') }}"
-                                class="rounded-circle">
-                            <div class="is-online"></div>
-                        </div>
-                        <div class="dropdown-item-desc">
-                            <b>Agung Ardiansyah</b>
-                            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <div class="time">12 Hours Ago</div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="dropdown-item">
-                        <div class="dropdown-item-avatar">
-                            <img alt="image"
-                                src="{{ asset('img/avatar/avatar-4.png') }}"
-                                class="rounded-circle">
-                        </div>
-                        <div class="dropdown-item-desc">
-                            <b>Ardian Rahardiansyah</b>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
-                            <div class="time">16 Hours Ago</div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="dropdown-item">
-                        <div class="dropdown-item-avatar">
-                            <img alt="image"
-                                src="{{ asset('img/avatar/avatar-5.png') }}"
-                                class="rounded-circle">
-                        </div>
-                        <div class="dropdown-item-desc">
-                            <b>Alfa Zulkarnain</b>
-                            <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-                            <div class="time">Yesterday</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="dropdown-footer text-center">
-                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                </div>
+                    </li>
+                </ul>
             </div>
-        </li>
-        <li class="dropdown dropdown-list-toggle"><a href="#"
-                data-toggle="dropdown"
-                class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right">
-                <div class="dropdown-header">Notifications
-                    <div class="float-right">
-                        <a href="#">Mark All As Read</a>
-                    </div>
-                </div>
-                <div class="dropdown-list-content dropdown-list-icons">
-                    <a href="#"
-                        class="dropdown-item dropdown-item-unread">
-                        <div class="dropdown-item-icon bg-primary text-white">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="dropdown-item-desc">
-                            Template update is available now!
-                            <div class="time text-primary">2 Min Ago</div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="dropdown-item">
-                        <div class="dropdown-item-icon bg-info text-white">
-                            <i class="far fa-user"></i>
-                        </div>
-                        <div class="dropdown-item-desc">
-                            <b>You</b> and <b>Dedik Sugiharto</b> are now friends
-                            <div class="time">10 Hours Ago</div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="dropdown-item">
-                        <div class="dropdown-item-icon bg-success text-white">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div class="dropdown-item-desc">
-                            <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
-                            <div class="time">12 Hours Ago</div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="dropdown-item">
-                        <div class="dropdown-item-icon bg-danger text-white">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <div class="dropdown-item-desc">
-                            Low disk space. Let's clean it!
-                            <div class="time">17 Hours Ago</div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="dropdown-item">
-                        <div class="dropdown-item-icon bg-info text-white">
-                            <i class="fas fa-bell"></i>
-                        </div>
-                        <div class="dropdown-item-desc">
-                            Welcome to Stisla template!
-                            <div class="time">Yesterday</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="dropdown-footer text-center">
-                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="dropdown"><a href="#"
-                data-toggle="dropdown"
-                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image"
-                    src="{{ asset('img/avatar/avatar-1.png') }}"
-                    class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hi, Ene</div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
-                <a href="features-profile.html"
-                    class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
-                </a>
-                <a href="features-activities.html"
-                    class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> Activities
-                </a>
-                <a href="features-settings.html"
-                    class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#"
-                    class="dropdown-item has-icon text-danger">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-            </div>
-        </li>
-    </ul>
-</nav>
+        </div><!-- .nk-header-wrap -->
+    </div><!-- .container-fliud -->
+</div>

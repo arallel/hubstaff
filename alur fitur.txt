@@ -1,0 +1,20 @@
+membuat auth menggunakan api 
+perkalian hitung presentase task: task selesai / total task * 100
+membuat activty dan mendetect aplikasi yang dibuka
+
+screen shot layar setiap 10 menit
+
+budget masih kemungkinan digunakan untuk membayar pegawai untuk membuat angka bertambah
+maka akan melihat apakah pekerja sudah bekerja selama 1 jam apabila iya maka budget remaining berkurang 
+total senilai harga pekerja dan spent nya bertambah dengan gaji pegawai selama 1 jam
+
+
+pembuatan report
+
+membuat member yang join dengan implode explode data
+
+menghapus data dengan mencari screen shot dan data todo kemudian di hapus semua
+
+membuat send mail dengan invitation dengan href mengambil dari data id di users apabila user
+
+ukuran mail 640px dan 479

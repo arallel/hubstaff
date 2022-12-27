@@ -117,8 +117,10 @@
                                     <th>Payment</th>
                                     <th>Limits</th>
                                    
+                                    <th>Status</th>
                                     <th></th>
                                 </tr>
+                                @foreach ($data as $invit)
                                 <tr>
                                     <td class="p-0 text-center">
                                         <div class="custom-checkbox custom-control">
@@ -127,16 +129,19 @@
                                             <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                                         </div>
                                     </td>
-                                    <td>Shin Kisagi</td>
+                                    <td>{{ $invit->email }}</td>
                                    
-                                    <td>
-                                        Organization Owner
+                                    <td>{{ $invit->role }}</td>
                                     <td>None</td>
                                     <td>
+                                        @if (!$invit->payrate)
                                         <a href="">No pay rate / bill rate</a>
+                                        @else
+                                        {{ $invit->payrate }}
+                                        @endif
                                     </td>
                                     <td>no weekly limit <br> no daily limit</td>
-                                    
+                                    <td><span class="badge badge-success">Pending</span></td>
                                     <td>
                                         <a href="#" class="btn btn-icon icon-left" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
@@ -150,38 +155,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="p-0 text-center">
-                                        <div class="custom-checkbox custom-control">
-                                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                                id="checkbox-2">
-                                            <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                                        </div>
-                                    </td>
-                                    <td>Shin Kisagi</td>
-                                   
-                                    </td>
-                                    <td>
-                                        Organization Owner
-                                    <td>None</td>
-                                    <td>
-                                        <a href="">No pay rate / bill rate</a>
-                                    </td>
-                                    <td>no weekly limit <br> no daily limit</td>
-                                   
-                                    <td>
-                                        <a href="#" class="btn btn-icon icon-left" id="dropdownMenuButton"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Edit info</a>
-                                            <a class="dropdown-item" href="#">Edit Role and Membership</a>
-                                            <a class="dropdown-item" href="#">Edit Payment Detail</a>
-                                            <a class="dropdown-item" href="#">Edit Limit</a>
-                                            
-                                            <a class="dropdown-item" href="#">Remove Member</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>

@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\ProjectResource;
 use App\Models\Project;
+use App\Models\screen;
 
 class ProjectApiController extends Controller
 {
     public function index()
     {
-        $data = Project::limit(5)->get();
-        return ['data' => $data];
+        return $data = Project::all();
+        // return ProjectResource::collection($data);
     }
     public function store(Request $request)
     {
@@ -63,5 +65,12 @@ class ProjectApiController extends Controller
         }else{
            return  'data masih ada';
         }
+    }
+    public function test(Request $request)
+    {
+    //   $data = screen::create([
+    //     'image' => $request->image,
+    //   ]);
+    return ['image' => $request->image];
     }
 }
