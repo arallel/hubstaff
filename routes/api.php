@@ -27,13 +27,12 @@ Route::controller(ProjectApiController::class)->group(function () {
     Route::post('/project/store', 'store');
     Route::patch('/project/update/{project_id}', 'update');
     Route::delete('/project/delete/{project_id}', 'delete');
-    Route::post('/image/store', 'test')->name('test');
 });
 Route::controller(membersApiController::class)->group(function () {
     Route::get('/members/all', 'index');
-    // Route::post('/members/store', 'store');
-    // Route::get('/project/show/{project_id}', 'show');
-    // Route::patch('/project/update/{project_id}', 'update');
-    // Route::delete('/project/delete/{project_id}', 'delete');
-    // Route::post('/image/store', 'test')->name('test');
+    Route::get('/members/archive', 'archive');
+    Route::post('/members/store', 'store');
+    Route::get('/members/show/{user_id}', 'show');
+    Route::patch('/members/update/{user_id}', 'update');
+    Route::delete('/members/delete/{user_id}', 'delete');
 });

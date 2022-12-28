@@ -12,11 +12,21 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        // $response = Http::get(env('url_api').'/project/all');
-        $response = Http::get('http://127.0.0.1:8080/api/project/all');
-        $data = $response->json();
+        $response = Http::get(env('url_api').'/project/all');
+        // $response = Http::get('http://127.0.0.1:8080/api/project/all');
+        $project = $response->json();
+        $data = collect($project)->where('project_status','=','0');
          return view('admin.project.project-all',['data'=> $data]); 
 
+
+    }
+    public function archive()
+    {
+        $response = Http::get(env('url_api').'/project/all');
+        $project = $response->json();
+       $data = collect($project)->where('project_status','=','1');
+    //    dd($data);
+       return view('admin.project.project-archive',compact('data'));
 
     }
     public function store(Request $request)

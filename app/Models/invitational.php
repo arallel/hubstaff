@@ -13,6 +13,7 @@ class invitational extends Model
     protected $fillable = [
          'email',
          'token',
+         'status',
          'company',
          'role',
          'payrate',

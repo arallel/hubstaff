@@ -26,7 +26,7 @@ class ProjectApiController extends Controller
             'budget' => $request->budget,
             'budget_type' => $request->budget_type,
             'budget_based' => $request->budget_based,
-            'project_status' => $request->project_name,
+            'project_status' => '0',
             'notify_at' => $request->notify_at,
             'client_id' => $request->client_id,
         ]);

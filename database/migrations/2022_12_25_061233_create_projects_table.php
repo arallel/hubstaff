@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('project_status')->nullable();
             $table->date('start')->nullable();
             $table->string('notify_at')->nullable();
+            $table->string('todos_id')->nullable();
             $table->string('teams')->nullable();
             $table->string('manager')->nullable();
             $table->string('user_id')->nullable();

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id('invit_id');
             $table->string('email');
             $table->string('token');
-            $table->string('project_id');
+            $table->string('project_id')->nullable();
+            $table->enum('status',['0','1']);
             $table->string('payrate')->nullable();
             $table->enum('role',['manager','project_manager','user','project_viewer','owner']);
             $table->string('company');

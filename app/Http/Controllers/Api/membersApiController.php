@@ -18,6 +18,10 @@ class membersApiController extends Controller
     {
         return User::all();
     }
+    public function archive()
+    {
+        return invitational::all();
+    }
     public function store(Request $request)
     {
         $email = $request->email;
@@ -33,7 +37,8 @@ class membersApiController extends Controller
              'email' => $email, 
              'company' => 'vito', 
              'role' => $request->role, 
-             'payrate' => $payrate[$i], 
+             'payrate' => $payrate[$i],
+             'status' => '0', 
             ]);
             $invitational = invitational::where('email','=', $email)->get();
             Mail::to($email)->send(new invitmember($invitational));

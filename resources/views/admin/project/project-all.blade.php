@@ -18,10 +18,10 @@
                                     <h2>Project</h2>
                                     <ul class="nav nav-tabs mt-n3">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#active">Active</a>
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#active">Active ({{count($data)}})</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#archive">Archive</a>
+                                            <a class="nav-link" href="{{ route('project.archive') }}">Archived</a>
                                         </li>
 
                                     </ul>
@@ -555,7 +555,7 @@
                                 <label class="custom-control-label" for="recordActivity">Record Activity</label>
                             </div>
                             <div class="form-group mt-2">
-                                <label class="form-label">Select2 Default</label>
+                                <label class="form-label">Select Client</label>
                                 <div class="form-control-wrap">
                                     <select class="form-select js-select2">
                                         <option value="default_option">Client</option>

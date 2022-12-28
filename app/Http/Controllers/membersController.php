@@ -19,11 +19,11 @@ class membersController extends Controller
      */
     public function index()
     {
-        // $response = Http::get(env('url_api').'/members/all');
-        $response = Http::get('http://127.0.0.1:8080/api/members/all');
+        $response = Http::get(env('url_api').'/members/all');
+        // $response = Http::get('http://127.0.0.1:8080/api/members/all');
         $data = $response->json();
-        // $response = Http::get(env('url_api').'/project/all');
-        $response = Http::get('http://127.0.0.1:8080/api/project/all');
+        $response = Http::get(env('url_api').'/project/all');
+        // $response = Http::get('http://127.0.0.1:8080/api/project/all');
         $project = $response->json();
 
         // dd($data);
@@ -32,8 +32,14 @@ class membersController extends Controller
     public function invites()
     {
         $data = invitational::all();
+        $response = Http::get(env('url_api').'/members/archive');
+        // $response = Http::get('http://127.0.0.1:8080/api/members/all');
+        $data = $response->json();
+        $response = Http::get(env('url_api').'/project/all');
+        // $response = Http::get('http://127.0.0.1:8080/api/project/all');
+        $project = $response->json();
         // dd($data);
-        return view('admin.project.invites',compact('data'));
+        return view('admin.project.invites',compact('data','project'));
     }
 
     /**
@@ -41,9 +47,15 @@ class membersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function archive()
     {
-        //
+        $response = Http::get(env('url_api').'/members/archive');
+        $members = $response->json();
+       $data = collect($members)->where('status','=','0');
+       $response = Http::get(env('url_api').'/project/all');
+       // $response = Http::get('http://127.0.0.1:8080/api/project/all');
+       $project = $response->json();
+        return view('admin.member.memberarchive',compact('data','project'));
     }
 
     /**
@@ -66,6 +78,7 @@ class membersController extends Controller
              'company' => 'vito', 
              'role' => $request->role, 
              'payrate' => $payrate[$i], 
+             'status' => '0',
             ]);
             $invitational = invitational::where('email','=',$email[$i])->first();
             // dd($invitational);

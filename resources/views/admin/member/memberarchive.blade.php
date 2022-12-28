@@ -15,14 +15,14 @@
                             </div>
                             <div class="card card-bordered card-preview">
                                 <div class="card-inner">
-                                    <h2>Members </h2>
+                                    <h2>Invite Members</h2>
                                     <ul class="nav nav-pills mt-2">
                                         <li class="nav-item">
-                                            <a class="ml-2 nav-link active bg-primary" id="home-tab3"
+                                            <a class="ml-2 nav-link " id="home-tab3"
                                                 href="{{ route('members.index') }}">Active</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('members.archive') }}">Invite</a>
+                                            <a class="nav-link active bg-primary" href="{{ route('members.archive') }}">Invite</a>
                                         </li>
                                     </ul>
                                     <div class="row">
@@ -34,7 +34,7 @@
                                             {{-- <button class="btn btn-info" data-toggle="modal" data-target="#newProject">New
                                                 Project</button> --}}
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal">AddMember</button>
+                                                data-bs-target="#exampleModal">Invite Members</button>
                                         </div>
                                     </div>
 
@@ -46,27 +46,28 @@
                                                 <th class="text-center">
                                                     No
                                                 </th>
-                                                <th>Task Name</th>
-                                                <th>Team</th>
-                                                <th>Members</th>
-                                                <th>Budget</th>
+                                                <th>Member</th>
+                                                <th>Role</th>
+                                                <th>Teams</th>
+                                                <th>Project</th>
+                                                <th>Payment</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                              @foreach ($data as $d)
-                                             @dd($d)
                                                 <tr>
                                                     <td>
                                                          <div class="sort-handler">
                                                             <i class="fas fa-th"></i>
                                                         </div>
                                                     </td>
-                                                    <td>{{ $d['project_name'] }}</td>
+                                                    <td>{{ $d['email'] }}</td>
+                                                    <td>{{ $d['role'] }}</td>
                                                     <td>
-                                                        @if ($d['teams'] == null)
-                                                            None
+                                                        None
+                                                        {{-- @if ($d['teams'] == null)
                                                         @else
                                                             <div class="row">
 
@@ -75,45 +76,26 @@
                                                                     class="rounded-circle" width="35"
                                                                     data-toggle="tooltip" title="Wildan Ahdian">
                                                             </div>
-                                                        @endif
+                                                        @endif --}}
                                                     </td>
                                                     <td>
-                                                        @if ($d['user_id'] == null)
-                                                            None
+                                                        @if ($d['project_id'] == !null)
+                                                        {{ $d['project_id'] }}
                                                         @else
-                                                            <div class="row">
-
-                                                                <img alt="image"
-                                                                    src="{{ asset('img/avatar/avatar-5.png') }}"
-                                                                    class="rounded-circle" width="35"
-                                                                    data-toggle="tooltip" title="Wildan Ahdian">
-                                                                <img alt="image"
-                                                                    src="{{ asset('img/avatar/avatar-5.png') }}"
-                                                                    class="rounded-circle" width="35"
-                                                                    data-toggle="tooltip" title="Wildan Ahdian">
-                                                                <img alt="image"
-                                                                    src="{{ asset('img/avatar/avatar-5.png') }}"
-                                                                    class="rounded-circle" width="35"
-                                                                    data-toggle="tooltip" title="Wildan Ahdian">
-                                                            </div>
-                                                        @endif
-
-                                                    </td>
+                                                            None
+                                                        @endif</td>
                                                     <td class="align-middle">
-                                                        <div class="progress" data-height="4" data-toggle="tooltip"
-                                                            title="100%">
-                                                            <div class="progress-bar bg-success" data-width="100"></div>
-                                                        </div>
-                                                        <button class="btn" data-toggle="modal"
-                                                            data-target="#editProject{{ $d['project_id'] }}">Edit
-                                                            Budget</button>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="badge rounded-pill bg-success">active</div>
+                                                        @if ($d['payrate'] == !null)
+                                                        {{ $d['payrate'] }}
+                                                        @else
+                                                            None
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <div class="dropdown">
+                                                    <div class="badge rounded-pill bg-success">Pending</div>
+                                                    </td>
+                                                    <td>
+                                                        {{-- <div class="dropdown">
                                                             <a class=" dropdown-toggle" href="#"
                                                                 data-bs-toggle="dropdown">Action </a>
                                                             <div class="dropdown-menu">
@@ -145,7 +127,7 @@
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

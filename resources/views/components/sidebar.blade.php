@@ -46,16 +46,28 @@
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Menus</h6>
                     </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="{{ route('project.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-file"></em></span>
-                            <span class="nk-menu-text">Project</span>
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-check-round-cut"></em></span>
+                            <span class="nk-menu-text">Activity</span>
                         </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ route('project.index') }}" class="nk-menu-link">
+                                    <span class="nk-menu-text">Project</span>
+                                </a>
+                            </li><!-- .nk-menu-item -->
+                            <li class="nk-menu-item">
+                                <a href="html/project-list.html" class="nk-menu-link"><span
+                                        class="nk-menu-text">To-dos</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
+                    
                     <li class="nk-menu-item">
                         <a href="{{ route('members.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
-                            <span class="nk-menu-text">People</span>
+                            <span class="nk-menu-text">Members</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                 </ul><!-- .nk-menu -->
