@@ -11,12 +11,15 @@ class Project extends Model
     protected $primaryKey = 'project_id';
     protected $fillable = [
         'project_name',
+        'description',
+        'billable',
+        'record_activity',
         'budget',
+        'client_id',
         'budget_type',
         'budget_based',
         'project_status',
         'notify_at',
-        'client_id',
     ];
     
 }

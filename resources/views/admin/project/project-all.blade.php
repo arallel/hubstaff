@@ -21,9 +21,9 @@
                                             <a class="nav-link active" data-bs-toggle="tab" href="#active">Active ({{count($data)}})</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('project.archive') }}">Archived</a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#archive">Archive ({{count($data)}})</a>
                                         </li>
-
+                                       
                                     </ul>
                                     <div class="row">
                                     
@@ -509,7 +509,7 @@
         </div>
     </div>
 
-    <!-- Modal Content Code -->
+    <!-- Modal New Project Code -->
     <div class="modal fade" tabindex="-1" id="newProjectnew">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -541,14 +541,20 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="general">
                             <div class="form-group">
-                                <label class="form-label" for="default-textarea">Textarea</label>
+                                <label class="form-label" for="default-01">Name*</label>
                                 <div class="form-control-wrap">
-                                    <textarea class="form-control no-resize" id="default-textarea">Large text area content</textarea>
+                                    <input type="text" name="project_name" id="project_name" class="form-control" id="default-01" placeholder="Input placeholder">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="default-textarea">Description</label>
+                                <div class="form-control-wrap">
+                                    <textarea class="form-control no-resize" name="description" id="default-textarea">Large text area content</textarea>
                                 </div>
                             </div>
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="billable">
-                                <label class="custom-control-label" for="billable">Billable</label>
+                                <label name="billable" class="custom-control-label" for="billable">Billable</label>
                             </div>
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="recordActivity">
@@ -557,9 +563,8 @@
                             <div class="form-group mt-2">
                                 <label class="form-label">Select Client</label>
                                 <div class="form-control-wrap">
-                                    <select class="form-select js-select2">
-                                        <option value="default_option">Client</option>
-                                        <option value="option_select_name">Blindfold</option>                          
+                                    <select class="form-select js-select2">                                  
+                                        <option name="cliend_id" value="1">Aomega</option>                          
                                     </select>
                                 </div>
                             </div>
@@ -570,9 +575,9 @@
                                     <div class="form-group">
                                         <label class="form-label">Type*</label>
                                         <div class="form-control-wrap">
-                                            <select class="form-select js-select2">
-                                                <option value="default_option">Total Cost</option>
-                                                <option value="option_select_name">Total Hour</option>                          
+                                            <select name="budget_type" class="form-select js-select2">
+                                                <option value="total cost">Total Cost</option>
+                                                <option value="total hour">Total Hour</option>                          
                                             </select>
                                         </div>
                                     </div>
@@ -581,9 +586,9 @@
                                     <div class="form-group">
                                         <label class="form-label">Based On*</label>
                                         <div class="form-control-wrap">
-                                            <select class="form-select js-select2">
-                                                <option value="default_option">Bll Rate</option>
-                                                <option value="option_select_name">Pay Rate</option>                          
+                                            <select name="budget_based" class="form-select js-select2">
+                                                <option value="bill rate">Bll Rate</option>
+                                                <option value="pay rate">Pay Rate</option>                          
                                             </select>
                                         </div>
                                     </div>
@@ -595,7 +600,7 @@
                                             <div class="form-icon form-icon-left">
                                                 <em class="icon ni ni-sign-mxn-alt"></em>
                                             </div>
-                                            <input type="number" class="form-control" id="default-03" placeholder="0.0">
+                                            <input name="budget" type="number" class="form-control" id="default-03" placeholder="0.0">
                                         </div>
                                     </div>
                                 </div>
@@ -605,7 +610,7 @@
                                     <div class="form-group mt-3">
                                         <div class="form-control-wrap">
                                             <div class="input-group">
-                                                <input type="number" readonly class="form-control" placeholder="80" value="80" required>
+                                                <input name="notify_at" type="number" readonly class="form-control" placeholder="80" value="80" required>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text" id="basic-addon2">% of budget</span>
                                                 </div>
@@ -640,8 +645,8 @@
                                 </div>
                             </div>
                             <div class="custom-control custom-switch mt-2">
-                                <input type="checkbox" class="custom-control-input" id="billable">
-                                <label class="custom-control-label" for="billable">include non-billable time</label>
+                                <input type="checkbox" class="custom-control-input" id="non-billable">
+                                <label class="custom-control-label" for="non-billable">include non-billable time</label>
                             </div>
                         </div>
                         <div class="tab-pane" id="member">
@@ -689,9 +694,9 @@
                                 <div class="form-control-wrap">
                                     <select class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
                                         
-                                        <option value="option_select_name">Takane</option>
-                                        <option value="option_select_name">Haruka</option>                                       
-                                        <option value="option_select_name">Shintaro</option>                                       
+                                        <option value="option_select_name">Disaster</option>
+                                        <option value="option_select_name">A hero & a fool</option>                                       
+                                        <option value="option_select_name">AOmega</option>                                       
                                     </select>
                                 </div>
                             </div>

@@ -23,12 +23,21 @@ class ProjectApiController extends Controller
 
         $data = Project::create([
             'project_name' => $request->project_name,
+            'description' => $request->description,
+            'billable' => $request->billable,
+            'record_activity' => $request->record_activity,
+            'client_id' => $request->cliend_id,
+           /*  'budget_type' => $request->budget_type,
+            'budget_based' => $request->budget_based,
+            'budget' => $request->budget,
+            'notify_at' => $request->notify_at, */
+           /*  'project_name' => $request->project_name,
             'budget' => $request->budget,
             'budget_type' => $request->budget_type,
             'budget_based' => $request->budget_based,
             'project_status' => '0',
             'notify_at' => $request->notify_at,
-            'client_id' => $request->client_id,
+            'client_id' => $request->client_id, */
         ]);
         return ['data' => $data];
         // return redirect()->route('project.index');

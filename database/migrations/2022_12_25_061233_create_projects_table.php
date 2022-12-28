@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('manager')->nullable();
             $table->string('user_id')->nullable();
             $table->string('viewer')->nullable();
-            $table->string('client_id');
+            $table->foreignId('client_id')->nullable();
             $table->timestamps();
         });
     }
