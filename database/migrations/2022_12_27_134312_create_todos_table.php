@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('todos', function (Blueprint $table) {
-            $table->id();
+            $table->id('todos_id');
+            $table->string('task');
+            $table->string('user_id');
+            $table->string('project_id');
             $table->timestamps();
         });
     }

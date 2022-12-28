@@ -9,7 +9,7 @@ class invitational extends Model
 {
     use HasFactory;
     protected $table = 'invitationals';
-    protected $primary_key = 'invit_id';
+    protected $primaryKey = 'invit_id';
     protected $fillable = [
          'email',
          'token',

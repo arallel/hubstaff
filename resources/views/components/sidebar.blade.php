@@ -58,7 +58,7 @@
                                 </a>
                             </li><!-- .nk-menu-item -->
                             <li class="nk-menu-item">
-                                <a href="html/project-list.html" class="nk-menu-link"><span
+                                <a href="{{ route('task.index') }}" class="nk-menu-link"><span
                                         class="nk-menu-text">To-dos</span></a>
                             </li>
                         </ul><!-- .nk-menu-sub -->

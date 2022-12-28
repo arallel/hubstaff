@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\membersController;
+use App\Http\Controllers\TodosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,11 @@ Route::controller(membersController::class)->group(function () {
     Route::get('members/archive','archive')->name('members.archive');
     Route::get('invites','invites')->name('members.invites');
    Route::get('invitation/{token}/{company}','requestregister')->name('invit.request');
+});
+Route::controller(TodosController::class)->group(function () {
+    Route::get('task','index')->name('task.index');
+    Route::get('task/archive','archive')->name('task.archive');
+    Route::post('task/archive','store')->name('task.store');
 });
 
 Route::view('register', 'auth.register');

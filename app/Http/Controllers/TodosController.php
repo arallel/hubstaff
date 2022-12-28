@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\todos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class TodosController extends Controller
 {
@@ -14,7 +15,15 @@ class TodosController extends Controller
      */
     public function index()
     {
-        //
+        $members = Http::get(env('url_api').'/members/all');
+        $member = $members->json();
+        $projects = Http::get(env('url_api').'/project/all');
+        $project = $projects->json();
+        $todos = Http::get(env('url_api').'/task/all');
+        $todo = $todos->json();
+
+        return view('admin.todos.todosindex',compact('member','project','todo'));
+
     }
 
     /**
@@ -35,7 +44,14 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->project_id);
+        $response = Http::post(env('url_api').'/task/store', [
+            'task' => $request->task,
+            'user_id' => $request->user_id,
+            'project_id' => $request->project_id,
+        ]);
+        return redirect()->route('task.index');
+
     }
 
     /**

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProjectApiController;
 use App\Http\Controllers\Api\membersApiController;
+use App\Http\Controllers\Api\TodosApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,11 @@ Route::controller(membersApiController::class)->group(function () {
     Route::get('/members/show/{user_id}', 'show');
     Route::patch('/members/update/{user_id}', 'update');
     Route::delete('/members/delete/{user_id}', 'delete');
+});
+Route::controller(TodosApiController::class)->group(function () {
+    Route::get('/task/all', 'index');
+    Route::get('/task/show/{todos_id}', 'show');
+    Route::post('/task/store', 'store');
+    Route::patch('/task/update/{todos_id}', 'update');
+    Route::delete('/task/delete/{todos_id}', 'delete');
 });
