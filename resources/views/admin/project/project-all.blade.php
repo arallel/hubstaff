@@ -21,7 +21,7 @@
                                             <a class="nav-link active" data-bs-toggle="tab" href="#active">Active ({{count($data)}})</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#archive">Archive ({{count($data)}})</a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#archive">Archive ({{count($archive)}})</a>
                                         </li>
                                        
                                     </ul>
@@ -493,9 +493,35 @@
                                                         <th>Members</th>
                                                         <th>To-dos</th>
                                                         <th>Budget</th>
-                                                        <th></th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
+                                                <tbody>
+                                                    @foreach ($archive as $arc)
+                                                        <tr>
+                                                            <td>{{ $arc['project_name'] }}</td>
+                                                            <td>@if ($arc['teams'])
+                                                                {{ $arc['teams'] }}
+                                                            @else
+                                                                None
+                                                            @endif</td>
+                                                            <td>
+                                                                @if ($arc['user_id'])
+                                                                    {{ $arc['user_id'] }}
+                                                                @else
+                                                                    None
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                Count Hasil where dari project_id di table todos
+                                                            </td>
+                                                            <td>
+                                                                {{ $arc['budget'] }}
+                                                            </td>
+                                                            <td>Action</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
