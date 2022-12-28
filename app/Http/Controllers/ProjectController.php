@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Client;
 use App\Http\Resources\ProjectResource;
 use Illuminate\Support\Facades\Http;
 
@@ -13,11 +14,10 @@ class ProjectController extends Controller
     public function index()
     {
         $response = Http::get(env('url_api').'/project/all');
-        // $response = Http::get('http://127.0.0.1:8080/api/project/all');
+        
         $project = $response->json();
         $data = collect($project)->where('project_status','=','0');
          return view('admin.project.project-all',['data'=> $data]); 
-
 
     }
     public function archive()
@@ -40,7 +40,8 @@ class ProjectController extends Controller
         //     'notify_at' => $request->notify_at,
         //     'client_id' => $request->client_id,
         // ]);
-        Http::post(env('url_api').'project/store', [
+        dd($request);
+       /*  Http::post(env('url_api').'project/store', [
             'project_name' => $request->project_name,
             'budget' => $request->budget,
             'budget_type' => $request->budget_type,
@@ -49,7 +50,7 @@ class ProjectController extends Controller
             'notify_at' => $request->notify_at,
             'client_id' => $request->client_id,
         ]);
-        return redirect()->route('project.index');
+        return redirect()->route('project.index'); */
     }
     public function update(Request $request,$project_id)
     {

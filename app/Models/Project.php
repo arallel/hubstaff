@@ -22,4 +22,13 @@ class Project extends Model
         'notify_at',
     ];
     
+  /**
+   * Get all of the comments for the Project
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function clients()
+  {
+    return $this->belongsTo(Client::class, 'client_id');
+  }
 }

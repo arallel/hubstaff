@@ -519,194 +519,196 @@
                         <em class="icon ni ni-cross"></em>
                     </a>
                 </div>
-                <div class="modal-body">
-                    <ul class="nav nav-tabs mt-n3">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab"
-                                href="#general">General</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab"
-                                href="#budget">Budget</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab"
-                                href="#member">Members</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab"
-                                href="#team">Teams</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="general">
-                            <div class="form-group">
-                                <label class="form-label" for="default-01">Name*</label>
-                                <div class="form-control-wrap">
-                                    <input type="text" name="project_name" id="project_name" class="form-control" id="default-01" placeholder="Input placeholder">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="default-textarea">Description</label>
-                                <div class="form-control-wrap">
-                                    <textarea class="form-control no-resize" name="description" id="default-textarea">Large text area content</textarea>
-                                </div>
-                            </div>
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="billable">
-                                <label name="billable" class="custom-control-label" for="billable">Billable</label>
-                            </div>
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="recordActivity">
-                                <label class="custom-control-label" for="recordActivity">Record Activity</label>
-                            </div>
-                            <div class="form-group mt-2">
-                                <label class="form-label">Select Client</label>
-                                <div class="form-control-wrap">
-                                    <select class="form-select js-select2">                                  
-                                        <option name="cliend_id" value="1">Aomega</option>                          
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="budget">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label class="form-label">Type*</label>
-                                        <div class="form-control-wrap">
-                                            <select name="budget_type" class="form-select js-select2">
-                                                <option value="total cost">Total Cost</option>
-                                                <option value="total hour">Total Hour</option>                          
-                                            </select>
-                                        </div>
+                <form action="{{ route('project.store') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <ul class="nav nav-tabs mt-n3">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab"
+                                    href="#general">General</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab"
+                                    href="#budget">Budget</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab"
+                                    href="#member">Members</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab"
+                                    href="#team">Teams</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="general">
+                                <div class="form-group">
+                                    <label class="form-label" for="default-01">Name*</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" name="project_name" id="project_name" class="form-control" id="default-01" placeholder="Input placeholder">
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label class="form-label">Based On*</label>
-                                        <div class="form-control-wrap">
-                                            <select name="budget_based" class="form-select js-select2">
-                                                <option value="bill rate">Bll Rate</option>
-                                                <option value="pay rate">Pay Rate</option>                          
-                                            </select>
-                                        </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="default-textarea">Description</label>
+                                    <div class="form-control-wrap">
+                                        <textarea class="form-control no-resize" name="description" id="default-textarea">Large text area content</textarea>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label class="form-label" for="default-03">Cost*</label>
-                                        <div class="form-control-wrap">
-                                            <div class="form-icon form-icon-left">
-                                                <em class="icon ni ni-sign-mxn-alt"></em>
+                                <div class="custom-control custom-switch">
+                                    <input name="billable" type="checkbox" class="custom-control-input" id="billable">
+                                    <label class="custom-control-label" for="billable">Billable</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input name="record_activity" type="checkbox" class="custom-control-input" id="recordActivity">
+                                    <label class="custom-control-label" for="recordActivity">Record Activity</label>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label class="form-label">Select Client</label>
+                                    <div class="form-control-wrap">
+                                        <select class="form-select js-select2">                                  
+                                            <option name="cliend_id" value="1">Aomega</option>                          
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="budget">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="form-label">Type*</label>
+                                            <div class="form-control-wrap">
+                                                <select name="budget_type" class="form-select js-select2">
+                                                    <option value="total_cost">Total Cost</option>
+                                                    <option value="total_hours">Total Hours</option>                          
+                                                </select>
                                             </div>
-                                            <input name="budget" type="number" class="form-control" id="default-03" placeholder="0.0">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="form-label">Based On*</label>
+                                            <div class="form-control-wrap">
+                                                <select name="budget_based" class="form-select js-select2">
+                                                    <option value="bill_rate">Bll Rate</option>
+                                                    <option value="pay_rate">Pay Rate</option>                          
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="form-label" for="default-03">Cost*</label>
+                                            <div class="form-control-wrap">
+                                                <div class="form-icon form-icon-left">
+                                                    <em class="icon ni ni-sign-mxn-alt"></em>
+                                                </div>
+                                                <input name="budget" type="number" class="form-control" id="default-03" placeholder="0.0">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-lg-6">
-                                    <div class="form-group mt-3">
-                                        <div class="form-control-wrap">
-                                            <div class="input-group">
-                                                <input name="notify_at" type="number" readonly class="form-control" placeholder="80" value="80" required>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text" id="basic-addon2">% of budget</span>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group mt-3">
+                                            <div class="form-control-wrap">
+                                                <div class="input-group">
+                                                    <input name="notify_at" type="number" readonly class="form-control" placeholder="80" value="80" required>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="basic-addon2">% of budget</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row  mt-2">
-                                <div class="col-12 col-lg-6">
-                                    <div class="form-group ">
-                                        <label class="form-label">Resets</label>
-                                        <div class="form-control-wrap">
-                                            <select class="form-select js-select2">
-                                                <option value="default_option">Never</option>
-                                                <option value="option_select_name">Monthly</option>                          
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Start at*</label>
-                                        <div class="form-control-wrap">
-                                            <div class="form-icon form-icon-right">
-                                                <em class="icon ni ni-calendar-alt"></em>
+                                <div class="row  mt-2">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group ">
+                                            <label class="form-label">Resets</label>
+                                            <div class="form-control-wrap">
+                                                <select name="reset" class="form-select js-select2">
+                                                    <option value="default_option">Never</option>
+                                                    <option value="option_select_name">Monthly</option>                          
+                                                </select>
                                             </div>
-                                            <input type="text" class="form-control date-picker">
                                         </div>
-       
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Start at*</label>
+                                            <div class="form-control-wrap">
+                                                <div class="form-icon form-icon-right">
+                                                    <em class="icon ni ni-calendar-alt"></em>
+                                                </div>
+                                                <input name="start_at" type="text" class="form-control date-picker">
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="custom-control custom-switch mt-2">
+                                    <input name="non_billable_time" type="checkbox" class="custom-control-input" id="non-billable">
+                                    <label class="custom-control-label" for="non-billable">include non-billable time</label>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="member">
+                                <div class="form-group">
+                                    <label class="form-label">Manager <div><small>Oversees and manages the project</small></div></label>
+                                
+                                    <div class="form-control-wrap">
+                                        <select name="manager[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
+                                            
+                                            <option value="1">Takane</option>
+                                            <option value="2">Haruka</option>                                       
+                                     
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">User <div><small>Works on the project, will not see other users (most commong)</small></div></label>
+                                
+                                    <div class="form-control-wrap">
+                                        <select name="user[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
+                                            
+                                            <option value="1">Takane</option>
+                                            <option value="2">Haruka</option>                                       
+                                                                       
+                                        </select>
+                                    </div>
+                                </div>  1
+                                <div class="form-group">
+                                    <label class="form-label">Viewer <div><small>Can view team reports for this project</small></div></label>
+                                
+                                    <div class="form-control-wrap">
+                                        <select name="viewer[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
+                                            
+                                            <option value="1">Takane</option>
+                                            <option value="2">Haruka</option>                                       
+                                                                       
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="custom-control custom-switch mt-2">
-                                <input type="checkbox" class="custom-control-input" id="non-billable">
-                                <label class="custom-control-label" for="non-billable">include non-billable time</label>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="member">
-                            <div class="form-group">
-                                <label class="form-label">Manager <div><small>Oversees and manages the project</small></div></label>
-                               
-                                <div class="form-control-wrap">
-                                    <select class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                        
-                                        <option value="option_select_name">Takane</option>
-                                        <option value="option_select_name">Haruka</option>                                       
-                                        <option value="option_select_name">Shintaro</option>                                       
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">User <div><small>Works on the project, will not see other users (most commong)</small></div></label>
-                               
-                                <div class="form-control-wrap">
-                                    <select class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                        
-                                        <option value="option_select_name">Takane</option>
-                                        <option value="option_select_name">Haruka</option>                                       
-                                        <option value="option_select_name">Shintaro</option>                                       
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Viewer <div><small>Can view team reports for this project</small></div></label>
-                               
-                                <div class="form-control-wrap">
-                                    <select class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                        
-                                        <option value="option_select_name">Takane</option>
-                                        <option value="option_select_name">Haruka</option>                                       
-                                        <option value="option_select_name">Shintaro</option>                                       
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="team">
-                            <div class="form-group">
-                                <label class="form-label">Team</label>
-                               
-                                <div class="form-control-wrap">
-                                    <select class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                        
-                                        <option value="option_select_name">Disaster</option>
-                                        <option value="option_select_name">A hero & a fool</option>                                       
-                                        <option value="option_select_name">AOmega</option>                                       
-                                    </select>
+                            <div class="tab-pane" id="team">
+                                <div class="form-group">
+                                    <label class="form-label">Team</label>
+                                
+                                    <div class="form-control-wrap">
+                                        <select name="team[]"class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
+                                            <option value="Disaster">Disaster</option>
+                                            <option value="hero_fool">A hero & a fool</option>                                   
+                                            <option value="AOmega">AOmega</option>                                       
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer bg-light">
-                    <a href="#" data-bs-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary">Cancel</a>
-                    <a href="#" class="btn btn-info">Save</a>
-                </div>
+                    <div class="modal-footer bg-light">
+                        <a href="#" data-bs-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary">Cancel</a>
+                        <button href="#" type="submit"  class="btn btn-info">Save</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -12,4 +12,14 @@ class Client extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * Get all of the comments for the Client
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

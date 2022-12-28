@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\ProjectResource;
 use App\Models\Project;
 use App\Models\screen;
+use App\Models\Project_members;
 
 class ProjectApiController extends Controller
 {
@@ -27,18 +28,24 @@ class ProjectApiController extends Controller
             'billable' => $request->billable,
             'record_activity' => $request->record_activity,
             'client_id' => $request->cliend_id,
-           /*  'budget_type' => $request->budget_type,
-            'budget_based' => $request->budget_based,
-            'budget' => $request->budget,
-            'notify_at' => $request->notify_at, */
-           /*  'project_name' => $request->project_name,
-            'budget' => $request->budget,
             'budget_type' => $request->budget_type,
             'budget_based' => $request->budget_based,
-            'project_status' => '0',
+            'budget' => $request->budget,
             'notify_at' => $request->notify_at,
-            'client_id' => $request->client_id, */
+            'project_status' => '0',
         ]);
+
+        if($request->has('manager')) {
+           foreach ($request->manager as $memberId) {
+            Project_members::create([
+                'project_id' => $data->project_id,
+                'member_id' => $memberId,
+                'roles' => 'manager',
+            ]);
+           }
+        }
+
+        
         return ['data' => $data];
         // return redirect()->route('project.index');
     }

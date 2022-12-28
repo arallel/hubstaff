@@ -46,10 +46,10 @@
                                                 <th class="text-center">
                                                     No
                                                 </th>
-                                                <th>Task Name</th>
-                                                <th>Team</th>
-                                                <th>Members</th>
-                                                <th>Budget</th>
+                                                <th>Name</th>
+                                                <th>Role</th>
+                                                <th>status</th>
+                                                <th>project</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

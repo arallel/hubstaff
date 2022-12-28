@@ -12,7 +12,7 @@
                     <div class="nk-block nk-block-middle nk-auth-body">
                         <div class="brand-logo pb-5">
                             <a href="html/index.html" class="logo-link">
-                                <img class="logo-light logo-img logo-img-lg" src="./images/logo.png"
+                                <img class="logo-light logo-img logo-img-lg" src="{{ asset('images/logo.png') }}"
                                     srcset="./images/logo2x.png 2x" alt="logo">
                                 <img class="logo-dark logo-img logo-img-lg" src="./images/logo-dark.png"
                                     srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
@@ -69,6 +69,8 @@
                                             Terms.</a></label>
                                 </div>
                             </div>
+                            <input type="text" name="role" value="{{ $data->role }}" id="">
+                            <input type="text" name="company" value="{{ $data->company }}" id="">
                             <div class="form-group">
                                 <button class="btn btn-lg btn-primary btn-block">Register</button>
                             </div>
