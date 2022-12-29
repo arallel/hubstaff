@@ -60,5 +60,5 @@ Route::get('display', function () {
     return view('display');
 });
 
-// Route::view('','mail.invitmember');
+// Route::view('test','mail.invitmember');
 
