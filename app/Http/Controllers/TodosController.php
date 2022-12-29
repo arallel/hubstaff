@@ -83,19 +83,28 @@ class TodosController extends Controller
      * @param  \App\Models\todos  $todos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, todos $todos)
-    {
-        //
+    public function update(Request $request, $todos_id)
+    { 
+        $data = todos::findOrFail($todos_id);
+        $data->update([
+            'task' => $request->task,
+            'project_id' => $request->project_id,
+            'user_id' => $request->user_id
+        ]);
+        return redirect()->route('task.index');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\todos  $todos
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(todos $todos)
+   
+    public function delete($todos_id)
     {
-        //
+        $data = todos::findOrFail($todos_id);
+        $data->delete($todos_id);
+        if ($data) {
+            return redirect()->route('task.index'); 
+        } else {
+            return back();
+        }
+        
     }
 }

@@ -45,6 +45,8 @@ Route::controller(TodosController::class)->group(function () {
     Route::get('task','index')->name('task.index');
     Route::get('task/archive','archive')->name('task.archive');
     Route::post('task/archive','store')->name('task.store');
+    Route::delete('/task/delete/{todos_id}','delete')->name('task.delete');
+    Route::put('/task/update/{todos_id}', 'update')->name('task.update');
 });
 Route::controller(clientController::class)->group(function () {
     Route::get('client','index')->name('client.index');
