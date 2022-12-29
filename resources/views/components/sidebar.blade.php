@@ -61,6 +61,10 @@
                                 <a href="{{ route('task.index') }}" class="nk-menu-link"><span
                                         class="nk-menu-text">To-dos</span></a>
                             </li>
+                            <li class="nk-menu-item">
+                            <a href="{{ route('client.index') }}" class="nk-menu-link"><span
+                                        class="nk-menu-text">Clients</span></a>
+                            </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
                     

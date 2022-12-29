@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\membersController;
 use App\Http\Controllers\TodosController;
+use App\Http\Controllers\clientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,13 @@ Route::controller(TodosController::class)->group(function () {
     Route::get('task','index')->name('task.index');
     Route::get('task/archive','archive')->name('task.archive');
     Route::post('task/archive','store')->name('task.store');
+});
+Route::controller(clientController::class)->group(function () {
+    Route::get('client','index')->name('client.index');
+    Route::get('client/archive','archive')->name('client.archive');
+    Route::post('client/save','store')->name('client.store');
+    Route::put('client/update/{client_id}','update')->name('client.update');
+    Route::post('client/archive/{client_id}','archive')->name('client.archive');
 });
 
 Route::view('register', 'auth.register');

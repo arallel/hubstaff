@@ -85,8 +85,8 @@ class membersController extends Controller
             Mail::to($email[$i])->send(new invitmember($invitational));
         }
         
-        dd('data dikirim');
-    }
+        return redirect()->route('members.index');
+        }
     public function requestregister($token,$company)
     {
       $data = invitational::where('token','=',$token)->Where('company','=',$company)->limit(1)->first();
