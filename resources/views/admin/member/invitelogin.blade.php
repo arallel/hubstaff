@@ -13,8 +13,8 @@
                         <div class="brand-logo pb-5">
                             <a href="html/index.html" class="logo-link">
                                 <img class="logo-light logo-img logo-img-lg" src="{{ asset('images/logo.png') }}"
-                                    srcset="./images/logo2x.png 2x" alt="logo">
-                                <img class="logo-dark logo-img logo-img-lg" src="./images/logo-dark.png"
+                                    srcset="images/logo2x.png 2x" alt="logo">
+                                <img class="logo-dark logo-img logo-img-lg" src="{{ asset('images/logo-dark.png') }}    "
                                     srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
                             </a>
                         </div>
@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label class="form-label" for="email">Email</label>
                                 <div class="form-control-wrap">
-                                    <input type="email" name="email" value="{{ $data->email }}" class="form-control form-control-lg" id="email"
+                                    <input type="email" disabled name="email" value="{{ $data->email }}" class="form-control form-control-lg" id="email"
                                         placeholder="Enter your email address">
                                 </div>
                             </div>
@@ -61,16 +61,9 @@
                                         placeholder="Enter your passcode">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-control-xs custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox">
-                                    <label class="custom-control-label" for="checkbox">I agree to Dashlite <a tabindex="-1"
-                                            href="#">Privacy Policy</a> &amp; <a tabindex="-1" href="#">
-                                            Terms.</a></label>
-                                </div>
-                            </div>
-                            <input type="text" name="role" value="{{ $data->role }}" id="">
-                            <input type="text" name="company" value="{{ $data->company }}" id="">
+                            
+                            <input type="hidden" name="role" value="{{ $data->role }}" id="">
+                            <input type="hidden" name="company" value="{{ $data->company }}" id="">
                             <div class="form-group">
                                 <button class="btn btn-lg btn-primary btn-block">Register</button>
                             </div>
@@ -78,13 +71,6 @@
                         <div class="form-note-s2 pt-4"> Already have an account ? <a
                                 href="html/pages/auths/auth-login.html"><strong>Sign in instead</strong></a>
                         </div>
-                        <div class="text-center pt-4 pb-3">
-                            <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
-                        </div>
-                        <ul class="nav justify-center gx-8">
-                            <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
-                        </ul>
                     </div><!-- .nk-block -->
 
                 </div><!-- nk-split-content -->

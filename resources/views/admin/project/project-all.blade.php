@@ -591,7 +591,8 @@
                                 <div class="form-group mt-2">
                                     <label class="form-label">Select Client</label>
                                     <div class="form-control-wrap">
-                                        <select class="form-select js-select2">                                  
+                                        <select class="form-select js-select2">      
+                                            <option value="" selected></option>                            
                                             <option name="cliend_id" value="1">Aomega</option>                          
                                         </select>
                                     </div>
@@ -701,7 +702,7 @@
                                                                        
                                         </select>
                                     </div>
-                                </div>  1
+                                </div>
                                 <div class="form-group">
                                     <label class="form-label">Viewer <div><small>Can view team reports for this project</small></div></label>
                                 

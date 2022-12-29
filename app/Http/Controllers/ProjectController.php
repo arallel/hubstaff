@@ -42,17 +42,22 @@ class ProjectController extends Controller
         //     'notify_at' => $request->notify_at,
         //     'client_id' => $request->client_id,
         // ]);
-        dd($request);
-       /*  Http::post(env('url_api').'project/store', [
+      /*   dd($request);    */
+        $data = Http::post(env('url_api').'/project/store', [
             'project_name' => $request->project_name,
-            'budget' => $request->budget,
+            'descriptoin' => $request->description,
+            'billable' => $request->billable,
+            'record_activity' => $request->record_activity,
+            'client_id' => $request->client_id,
             'budget_type' => $request->budget_type,
             'budget_based' => $request->budget_based,
-            'project_status' => '0',
+            'budget' => $request->budget,
             'notify_at' => $request->notify_at,
-            'client_id' => $request->client_id,
+            'project_status' => '0',
+            'manager' => $request->manager,
         ]);
-        return redirect()->route('project.index'); */
+        dd($data);
+        /* return redirect()->route('project.index'); */
     }
     public function update(Request $request,$project_id)
     {

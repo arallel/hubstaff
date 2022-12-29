@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('project_members', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('project_id')->unsigned();
-            $table->foreign('project_id')->references('project_id')->on('projects');
-            $table->bigInteger('member_id')->unsigned();
-            $table->foreign('member_id')->references('user_id')->on('members');
+            $table->bigInteger('project_id')->nullable()->unsigned();
+            $table->foreign('project_id')->references('project_id')->on('projects')->onDelete('cascade');
+            $table->bigInteger('member_id')->nullable()->unsigned();
+            $table->foreign('member_id')->references('user_id')->on('members')->onDelete('cascade');
             $table->timestamps();
         });
     }

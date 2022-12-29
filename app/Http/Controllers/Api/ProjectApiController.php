@@ -35,7 +35,7 @@ class ProjectApiController extends Controller
             'project_status' => '0',
         ]);
 
-        if($request->has('manager')) {
+        /* if($request->has('manager')) {
            foreach ($request->manager as $memberId) {
             Project_members::create([
                 'project_id' => $data->project_id,
@@ -43,7 +43,7 @@ class ProjectApiController extends Controller
                 'roles' => 'manager',
             ]);
            }
-        }
+        } */
 
         
         return ['data' => $data];

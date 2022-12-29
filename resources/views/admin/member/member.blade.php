@@ -50,103 +50,29 @@
                                                 <th>Role</th>
                                                 <th>status</th>
                                                 <th>project</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                              @foreach ($data as $d)
-                                             @dd($d)
+                                             {{-- @dd($d) --}}
                                                 <tr>
                                                     <td>
                                                          <div class="sort-handler">
                                                             <i class="fas fa-th"></i>
                                                         </div>
                                                     </td>
-                                                    <td>{{ $d['project_name'] }}</td>
+                                                    <td>{{ $d['name'] }}</td>
                                                     <td>
-                                                        @if ($d['teams'] == null)
-                                                            None
-                                                        @else
-                                                            <div class="row">
-
-                                                                <img alt="image"
-                                                                    src="{{ asset('img/avatar/avatar-5.png') }}"
-                                                                    class="rounded-circle" width="35"
-                                                                    data-toggle="tooltip" title="Wildan Ahdian">
-                                                            </div>
-                                                        @endif
+                                                       {{ $d['role'] }}
                                                     </td>
                                                     <td>
-                                                        @if ($d['user_id'] == null)
-                                                            None
-                                                        @else
-                                                            <div class="row">
-
-                                                                <img alt="image"
-                                                                    src="{{ asset('img/avatar/avatar-5.png') }}"
-                                                                    class="rounded-circle" width="35"
-                                                                    data-toggle="tooltip" title="Wildan Ahdian">
-                                                                <img alt="image"
-                                                                    src="{{ asset('img/avatar/avatar-5.png') }}"
-                                                                    class="rounded-circle" width="35"
-                                                                    data-toggle="tooltip" title="Wildan Ahdian">
-                                                                <img alt="image"
-                                                                    src="{{ asset('img/avatar/avatar-5.png') }}"
-                                                                    class="rounded-circle" width="35"
-                                                                    data-toggle="tooltip" title="Wildan Ahdian">
-                                                            </div>
-                                                        @endif
-
+                                                      {{ $d['status'] }}
                                                     </td>
                                                     <td class="align-middle">
-                                                        <div class="progress" data-height="4" data-toggle="tooltip"
-                                                            title="100%">
-                                                            <div class="progress-bar bg-success" data-width="100"></div>
-                                                        </div>
-                                                        <button class="btn" data-toggle="modal"
-                                                            data-target="#editProject{{ $d['project_id'] }}">Edit
-                                                            Budget</button>
+                                                        {{ $d['project'] }}
                                                     </td>
-
-                                                    <td>
-                                                        <div class="badge rounded-pill bg-success">active</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <a class=" dropdown-toggle" href="#"
-                                                                data-bs-toggle="dropdown">Action </a>
-                                                            <div class="dropdown-menu">
-                                                                <ul class="link-list-opt">
-                                                                    <li><button type="button" class="dropdown-item"
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#modalDefault">Edit
-                                                                            Project</button></li>
-                                                                    <li>
-                                                                        <form
-                                                                            action="{{ route('project.duplicate', $d['project_id']) }}"
-                                                                            method="POST">
-                                                                            @csrf
-                                                                            <button type="submit"
-                                                                                class="dropdown-item">Duplicate
-                                                                                Project</button>
-                                                                        </form>
-                                                                    </li>
-                                                                    <li>
-                                                                        <form
-                                                                            action="{{ route('project.delete', $d['project_id']) }}"
-                                                                            method="POST">
-                                                                            @method('delete')
-                                                                            @csrf
-                                                                            <button type="submit"
-                                                                                class="dropdown-item">Delete
-                                                                                Project</button>
-                                                                        </form>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </td>
+                                                    <td>Acion</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
