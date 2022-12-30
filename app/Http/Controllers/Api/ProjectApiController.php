@@ -39,30 +39,34 @@ class ProjectApiController extends Controller
             'non_billable_time' => $request->non_billable_time,
         ]);
 
+        
+        if($request->filled('user')){
+            foreach ($request->user as $userId) {
+                Project_members::create([
+                    'project_id' => $data->project_id,
+                    'member_id' => $userId,
+                    'roles' => 'user',
+                ]);
+            }   
+        }
+
+
         if($request->filled('manager')) {
-            foreach ($request->manager as $memberId) {
+            foreach ($request->manager as $managerId) {
             Project_members::create([
                 'project_id' => $data->project_id,
-                'member_id' => $memberId,
+                'member_id' => $managerId,
                 'roles' => 'manager',
             ]);
            }
         }
 
-        if($request->filled('user')){
-            foreach ($request->user as $memberId) {
-                Project_members::create([
-                    'project_id' => $data->project_id,
-                    'member_id' => $memberId,
-                    'roles' => 'user',
-                ]);
-            }   
-        }
+        
         if($request->filled('viewer')){
-            foreach ($request->viewer as $memberId) {
+            foreach ($request->viewer as $viewerId) {
                 Project_members::create([
                     'project_id' => $data->project_id,
-                    'member_id' => $memberId,
+                    'member_id' => $viewerId,
                     'roles' => 'viewer',
                 ]);
             }   

@@ -23,8 +23,16 @@ class ProjectController extends Controller
         $project_archives = Http::get(env('url_api').'/project/all');
         $archives = $project_archives->json();
         $archive = collect($archives)->where('project_status','=','1');
+
+        $team_response =  Http::get(env('url_api').'/teams/all');
+        $teams = $team_response->json();
+        $member_response =  Http::get(env('url_api').'/members/all');
+        $members = $member_response->json();
+
+        $client_response = Http::get(env('url_api') . '/client/all');
+        $clients = $client_response->json();
        
-         return view('admin.project.project-all',compact('data','archive')); 
+         return view('admin.project.project-all',compact('data','archive','members','teams','clients')); 
 
     }
     public function archive()
@@ -41,6 +49,7 @@ class ProjectController extends Controller
         if ($request->client_id == 'null') {
             $request->client_id = null;
         }
+        
       
         $data = Http::post(env('url_api').'/project/store', [
             'project_name' => $request->project_name,
@@ -61,17 +70,19 @@ class ProjectController extends Controller
             'reset' => $request->reset,
             'non_billable_time' => $request->non_billable_time
         ]);
-        // return $data;
+
+        return $data;
         
-        return redirect()->route('project.index');
+        // return redirect()->route('project.index');
     }
     public function update(Request $request,$project_id)
     {
         $start = date('Y/m/d',strtotime($request->start));
         if ($request->client_id == 'null') {
             $request->client_id = null;
-        }
-        return $request;
+        } 
+       
+      
         $data = Http::patch(env('url_api').'/project/update/' . $project_id, [
             'project_name' => $request->project_name,
             'description' => $request->description,
@@ -91,8 +102,8 @@ class ProjectController extends Controller
             'reset' => $request->reset,
             'non_billable_time' => $request->non_billable_time
         ]);
-        return $data;
-      
+       
+        /* return redirect()->route('project.index'); */
         // $data = Project::findOrFail($project_id);
         //   $data->update([
         //       'project_name' => $request->project_name,
@@ -102,7 +113,7 @@ class ProjectController extends Controller
         //       'notify_at' => $request->notify_at,
         //       'client_id' => $request->client_id,
         //   ]);
-        //   return redirect()->route('project.index');
+        //  
     }
     public function delete($project_id)
     {

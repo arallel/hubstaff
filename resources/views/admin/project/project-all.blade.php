@@ -211,9 +211,7 @@
                                                                                         <div class="form-control-wrap">
                                                                                             <select name="client_id" class="form-select js-select2">      
                                                                                                 <option value="null" selected>No Client</option>                            
-                                                                                               @foreach ($clients as $client)
-                                                                                                   <option value="{{ $client['client_id'] }}" {{ $client['client_id'] == $d['client_id'] ? 'selected' : '' }}>{{ $client['client_name'] }}</option>
-                                                                                               @endforeach                        
+                                                                                                <option {{ $d['client_id'] == 1 ? "selected" : "" }} value="1">Aomega</option>                          
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -356,7 +354,7 @@
                                                                                                                 @break
                                                                                                             @else
                                                                                                             <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
-                                                                                                                @break
+                                                                                                   
                                                                                                             @endif
                                                                                                         @endif
                                                                                                         @endforeach
@@ -392,7 +390,7 @@
                                                                                                                 @break
                                                                                                             @else
                                                                                                             <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
-                                                                                                                @break
+                                                                                                           
                                                                                                             @endif
                                                                                                         @endif
                                                                                                         @endforeach
@@ -440,13 +438,11 @@
                                                                                             @foreach ($teams as $team)
                                                                                            
                                                                                                 
-                                                                                            <option value="{{ $team['id'] }}">{{ $team['id'] }}</option>
+                                                                                            <option value="{{ $team['id'] }}">{{ $team['name'] }}</option>
                                                                                       
                                                                                             @endforeach
                                                                                             @endif
-                                                                                                {{-- @foreach ( $d['team'] as $team )
-                                                                                                <option {{ $team['team_id'] == 1 ? 'selected' : '' }}  value="AOmega">AOmega</option>                                       
-                                                                                                @endforeach --}}
+                                                                                                
                                                                                                
                                                                                             </select>
                                                                                         </div>
@@ -570,15 +566,15 @@
                                     <input name="record_activity" type="checkbox" value="1" class="custom-control-input" id="recordActivity">
                                     <label class="custom-control-label" for="recordActivity">Record Activity</label>
                                 </div>
-                                {{-- @dd($clients/) --}}
                                 <div class="form-group mt-2">
                                     <label class="form-label">Select Client</label>
                                     <div class="form-control-wrap">
                                         <select name="client_id" class="form-select js-select2">      
-                                            <option disabled selected>No Client</option> 
+                                            <option value="null" selected>No Client</option>         
                                             @foreach ($clients as $client )
-                                                <option value="{{ $client['client_id'] }}">{{ $client['client_name'] }}</option>
-                                            @endforeach
+                                                
+                                            <option value="{{ $client['client_id'] }}">{{ $client['client_name'] }}</option>                          
+                                            @endforeach                   
                                         </select>
                                     </div>
                                 </div>
