@@ -20,15 +20,23 @@ class Project extends Model
         'budget_based',
         'project_status',
         'notify_at',
+        'start',
+        'non_billable_time',
+        'reset',
     ];
     
-  /**
-   * Get all of the comments for the Project
-   *
-   * @return \Illuminate\Database\Eloquent\Relations\HasMany
-   */
   public function clients()
   {
     return $this->belongsTo(Client::class, 'client_id');
+  }
+
+  public function members() 
+  {
+    return $this->hasMany(Project_members::class,'project_id');
+  }
+
+  public function team() 
+  {
+    return $this->hasMany(ProjectTeam::class, 'project_id');
   }
 }

@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $table = 'members';
+    protected $primaryKey = 'user_id';
     protected $fillable = [
         'name',
         'email',
@@ -42,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function projects() {
+        return $this->hasMany(Project_members::class,'member_id');
+    }
+
+    public function teamMembers()
+    {
+        return $this->hasMany(Team_Member::class, 'member_id');
+    }
 }

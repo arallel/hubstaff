@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProjectTeam;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProjectResource;
 use App\Models\Project;
@@ -13,59 +14,88 @@ class ProjectApiController extends Controller
 {
     public function index()
     {
-        return $data = Project::all();
+        return $data = Project::with('members.member','team')->get();
         // return ProjectResource::collection($data);
     }
     public function store(Request $request)
     {
+        
         $this->validate($request,[
           'project_name'  => 'required'
         ]);
-
         $data = Project::create([
             'project_name' => $request->project_name,
             'description' => $request->description,
             'billable' => $request->billable,
             'record_activity' => $request->record_activity,
-            'client_id' => $request->cliend_id,
+            'client_id' => $request->client_id,
             'budget_type' => $request->budget_type,
             'budget_based' => $request->budget_based,
             'budget' => $request->budget,
             'notify_at' => $request->notify_at,
             'project_status' => '0',
+            'start' => $request->start,
+            'reset' => 'never',
+            'non_billable_time' => $request->non_billable_time,
         ]);
 
-        /* if($request->has('manager')) {
-           foreach ($request->manager as $memberId) {
+        if($request->filled('manager')) {
+            foreach ($request->manager as $memberId) {
             Project_members::create([
                 'project_id' => $data->project_id,
                 'member_id' => $memberId,
                 'roles' => 'manager',
             ]);
            }
-        } */
+        }
+
+        if($request->filled('user')){
+            foreach ($request->user as $memberId) {
+                Project_members::create([
+                    'project_id' => $data->project_id,
+                    'member_id' => $memberId,
+                    'roles' => 'user',
+                ]);
+            }   
+        }
+        if($request->filled('viewer')){
+            foreach ($request->viewer as $memberId) {
+                Project_members::create([
+                    'project_id' => $data->project_id,
+                    'member_id' => $memberId,
+                    'roles' => 'viewer',
+                ]);
+            }   
+        }
+
+        if($request->filled('team')) {
+            foreach($request->team as $teamId) {
+                ProjectTeam::create([
+                    'project_id' => $data->project_id,
+                    'team_id'=>$teamId,
+                ]);
+            }
+        }
 
         
         return ['data' => $data];
-        // return redirect()->route('project.index');
+     
     }
-    public function update(Request $request,$project_id)
+    public function update(Request $request,Project $project_id)
     {
+       
         $this->validate($request,[
             'project_name'  => 'required'
           ]);
-          $data = Project::findOrFail($project_id);
-          $data->update([
+          $project_id->update([
               'project_name' => $request->project_name,
-              'budget' => $request->budget,
-              'budget_type' => $request->budget_type,
-              'budget_based' => $request->budget_based,
-              'project_status' => $request->project_name,
-              'notify_at' => $request->notify_at,
+              'description' => $request->description,
+              'billable' => $request->billable,
+              'record_activity' => $request->record_activity,
               'client_id' => $request->client_id,
           ]);
-          return ['data' => $data];
-        //   return redirect()->route('project.index')
+          return ['data' => $project_id];
+       
     }
     public function show($project_id)
     {

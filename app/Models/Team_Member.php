@@ -5,21 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project_members extends Model
+class Team_Member extends Model
 {
     use HasFactory;
+    protected $table = 'team_members';
     protected $fillable = [
-        'project_id',
         'member_id',
         'roles',
+        'team_id',
     ];
 
-    public function project() {
-        return $this->belongsTo(Project::class,'project_id');
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'team_id');
     }
 
     public function member() {
         return $this->belongsTo(User::class, 'member_id');
     }
- 
 }

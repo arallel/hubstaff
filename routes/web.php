@@ -16,6 +16,10 @@ use App\Http\Controllers\TodosController;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/dashboard');
+});
+
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('dashboard');
