@@ -44,6 +44,7 @@ Route::controller(membersController::class)->group(function () {
     Route::get('members/archive','archive')->name('members.archive');
     Route::get('invites','invites')->name('members.invites');
    Route::get('invitation/{token}/{company}','requestregister')->name('invit.request');
+   Route::post('invitation/register','reginvite')->name('reginvite');
 });
 Route::controller(TodosController::class)->group(function () {
     Route::get('task','index')->name('task.index');
