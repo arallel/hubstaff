@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Project;
 use App\Models\todos;
 
 class TodosApiController extends Controller
 {
     public function index()
     {
-        return todos::all();
+        return todos::with('project','usermember')->get();
     }
     public function store(Request $request)
     {

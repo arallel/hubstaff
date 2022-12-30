@@ -10,6 +10,7 @@ class Client extends Model
     use HasFactory;
 
     protected $primaryKey = 'client_id';
+    protected $table = 'clients';
     protected $fillable = [
         'client_name',
         'address',
@@ -33,4 +34,5 @@ class Client extends Model
     {
         return $this->hasMany(Project::class);
     }
+
 }

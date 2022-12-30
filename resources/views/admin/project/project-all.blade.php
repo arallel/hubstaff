@@ -210,7 +210,9 @@
                                                                                         <div class="form-control-wrap">
                                                                                             <select name="client_id" class="form-select js-select2">      
                                                                                                 <option value="null" selected>No Client</option>                            
-                                                                                                <option {{ $d['client_id'] == 1 ? "selected" : "" }} value="1">Aomega</option>                          
+                                                                                               @foreach ($clients as $client)
+                                                                                                   <option value="{{ $client['client_id'] }}" {{ $client['client_id'] == $d['client_id'] ? 'selected' : '' }}>{{ $client['client_name'] }}</option>
+                                                                                               @endforeach                        
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -471,12 +473,15 @@
                                     <input name="record_activity" type="checkbox" value="1" class="custom-control-input" id="recordActivity">
                                     <label class="custom-control-label" for="recordActivity">Record Activity</label>
                                 </div>
+                                {{-- @dd($clients/) --}}
                                 <div class="form-group mt-2">
                                     <label class="form-label">Select Client</label>
                                     <div class="form-control-wrap">
                                         <select name="client_id" class="form-select js-select2">      
-                                            <option value="null" selected>No Client</option>                            
-                                            <option value="1">Aomega</option>                          
+                                            <option disabled selected>No Client</option> 
+                                            @foreach ($clients as $client )
+                                                <option value="{{ $client['client_id'] }}">{{ $client['client_name'] }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

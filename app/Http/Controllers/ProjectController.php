@@ -19,12 +19,11 @@ class ProjectController extends Controller
         $response = Http::get(env('url_api').'/project/all');
         $project = $response->json();
         $data = collect($project)->where('project_status','=','0');
-        
-        $project_archives = Http::get(env('url_api').'/project/all');
-        $archives = $project_archives->json();
-        $archive = collect($archives)->where('project_status','=','1');
+        $archive = collect($project)->where('project_status','=','1');
        
-         return view('admin.project.project-all',compact('data','archive')); 
+        $res = Http::get(env('url_api').'/client/all');
+        $clients = $res->json();
+         return view('admin.project.project-all',compact('data','archive','clients')); 
 
     }
     public function archive()

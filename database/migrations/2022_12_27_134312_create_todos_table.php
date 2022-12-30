@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id('todos_id');
             $table->string('task');
-            $table->string('user_id');
-            $table->string('project_id');
+            $table->bigInteger('project_id')->unsigned();
+            $table->foreign('project_id')->references('project_id')->on('projects');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('user_id')->on('members');
             $table->timestamps();
         });
     }

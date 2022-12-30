@@ -27,7 +27,8 @@ return new class extends Migration
             $table->string('manager')->nullable();
             $table->string('user_id')->nullable();
             $table->string('viewer')->nullable();
-            $table->foreignId('client_id')->nullable()->constrained('clients');
+            $table->bigInteger('client_id')->nullable()->unsigned();
+            $table->foreign('client_id')->references('client_id')->on('clients');
             $table->timestamps();
         });
     }

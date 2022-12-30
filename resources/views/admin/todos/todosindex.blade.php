@@ -47,8 +47,8 @@
                                                         </div>
                                                     </td>
                                                     <td>{{ $t['task'] }}</td>
-                                                    <td>{{ $t['user_id'] }}</td>
-                                                    <td>{{ $t['project_id'] }}</td>
+                                                    <td>{{ $t['usermember']['name'] }}</td>
+                                                    <td>{{ $t['project']['project_name']}}</td>
                                                     <td>
                                                         <div class="dropdown">
                                                             <a class=" dropdown-toggle" href="#"
