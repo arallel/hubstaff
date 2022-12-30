@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\membersController;
 use App\Http\Controllers\TodosController;
+use App\Http\Controllers\clientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,15 @@ Route::controller(TodosController::class)->group(function () {
     Route::get('task','index')->name('task.index');
     Route::get('task/archive','archive')->name('task.archive');
     Route::post('task/archive','store')->name('task.store');
+    Route::delete('/task/delete/{todos_id}','delete')->name('task.delete');
+    Route::put('/task/update/{todos_id}', 'update')->name('task.update');
+});
+Route::controller(clientController::class)->group(function () {
+    Route::get('client','index')->name('client.index');
+    Route::get('client/archive','archive')->name('client.archive');
+    Route::post('client/save','store')->name('client.store');
+    Route::put('client/update/{client_id}','update')->name('client.update');
+    Route::post('client/archive/{client_id}','archive')->name('client.archive');
 });
 
 Route::view('register', 'auth.register');
@@ -64,5 +74,5 @@ Route::get('display', function () {
     return view('display');
 });
 
-// Route::view('','mail.invitmember');
+// Route::view('test','mail.invitmember');
 

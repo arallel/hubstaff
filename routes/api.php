@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProjectApiController;
 use App\Http\Controllers\Api\membersApiController;
 use App\Http\Controllers\Api\TodosApiController;
+use App\Http\Controllers\Api\clientApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +44,11 @@ Route::controller(TodosApiController::class)->group(function () {
     Route::post('/task/store', 'store');
     Route::patch('/task/update/{todos_id}', 'update');
     Route::delete('/task/delete/{todos_id}', 'delete');
+});
+Route::controller(clientApiController::class)->group(function () {
+    Route::get('/client/all', 'index');
+    Route::get('/client/show/{client_id}', 'show');
+    Route::post('/client/store', 'store');
+    Route::patch('/client/update/{client_id}', 'update');
+    Route::delete('/client/delete/{client_id}', 'destroy');
 });
