@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\invitmember;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Hash;
+
 
 class membersController extends Controller
 {
@@ -100,9 +102,19 @@ class membersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function reginvite(Request $request)
     {
-        //
+        $response = Http::post(env('url_api').'/register', [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+            'company' => $request->company,
+            'payrate' => $request->payrate,
+            'status' => '1',
+            'project' => $request->project,
+        ]);
+        return redirect('/');
     }
 
     /**

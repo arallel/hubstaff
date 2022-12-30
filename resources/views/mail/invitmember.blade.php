@@ -133,7 +133,7 @@
                                     <p style="margin-bottom: 10px;">Hubstaff makes it easy for virtual teams to work
                                         more efficiently by tracking time and
                                         projects / work orders. Over 8,000 remote teams use it daily</p>
-                                    <a href="#" class="btn">Accept
+                                    <a href="{{ url('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}" class="btn">Accept
                                         Invite</a>
                                 </td>
                             </tr>
@@ -143,7 +143,7 @@
                                         browser
                                         address bar.</p>
                                     <a
-                                        href="{{ url('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}">{{ url('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}</a><br>
+                                        href="{{ route('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}">{{ url('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}</a><br>
                                 </td>
                             </tr>
                             <tr>

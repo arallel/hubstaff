@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                         </div><!-- .nk-block-head -->
-                        <form action="{{ route('register') }}" method="POST">
+                        <form action="{{ route('reginvite') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label class="form-label" for="name">Name</label>
@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label class="form-label" for="email">Email</label>
                                 <div class="form-control-wrap">
-                                    <input type="email" disabled name="email" value="{{ $data->email }}" class="form-control form-control-lg" id="email"
+                                    <input type="email"   name="email" value="{{ $data->email }}" class="form-control form-control-lg" id="email"
                                         placeholder="Enter your email address">
                                 </div>
                             </div>
