@@ -38,6 +38,7 @@
                                     </div>
 
                                 </div>
+                              
                                 <div class="card-inner">
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="active">
@@ -56,9 +57,9 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                   {{--  @dump($data[5]['members'][0]['member']) --}}
+                                                    {{-- @dump($member) --}}
                                                     @foreach ($data as $d)
-                                                  
+                                                        {{-- @dump($d) --}}
                                                         <tr>
                                                             <td>
                                                                 <div class="sort-handler">
@@ -304,10 +305,34 @@
                                                                                     
                                                                                         <div class="form-control-wrap">
                                                                                             <select name="manager[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                                                                                @foreach ($d['members'] as $member )
-                                                                                                <option {{ $member['roles'] == 'manager' && $member['member']['user_id'] == 1 ? 'selected' : '' }} value="1">Takane</option>
-                                                                                                <option {{ $member['roles'] == 'manager' && $member['member']['user_id'] == 2 ? 'selected' : '' }} value="2">Haruka</option>   
+                                                                                                @if ($d['members'])      
+                                                                                                    @php  
+                                                                                                        $memberOfProject = $d['members']
+                                                                                                    @endphp
+                                                                                                    @foreach ($members as $member)
+                                                                                                        @foreach ($memberOfProject as $item)
+                                                                                                            @if($member['role'] == 'manager')
+                                                                                                            @if($item['member_id'] == $member['user_id'])
+                                                                                                            <option selected value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                                @break
+                                                                                                            @else
+                                                                                                            <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                                @break
+                                                                                                            @endif
+                                                                                                        @endif
+                                                                                                        @endforeach
+                                                                                                    @endforeach
+                                                                                                @else 
+                                                                                                @foreach ($members as $member)
+                                                                                                @if ($member['role'] == 'manager')
+                                                                                                    
+                                                                                                <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                @endif
                                                                                                 @endforeach
+                                                                                                @endif
+                                                                                               
+                                                                                                
+                                                                                                
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -316,11 +341,34 @@
                                                                                     
                                                                                         <div class="form-control-wrap">
                                                                                             <select name="user[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                                                                                @foreach ($d['members'] as $member )
-                                                                                                <option {{ $member['roles'] == 'user' && $member['member']['user_id'] == 1 ? 'selected' : '' }} value="1">Takane</option>
-                                                                                                <option {{ $member['roles'] == 'user' && $member['member']['user_id'] == 2 ? 'selected' : '' }} value="2">Haruka</option>   
-                                                                                                @endforeach                                     
-                                                                                                                           
+
+                                                                                                @if ($d['members'])      
+                                                                                                    @php  
+                                                                                                        $memberOfProject = $d['members']
+                                                                                                    @endphp
+                                                                                                    @foreach ($members as $member)
+                                                                                                        @foreach ($memberOfProject as $item)
+                                                                                                            @if($member['role'] == 'user')
+                                                                                                            @if($item['member_id'] == $member['user_id'])
+                                                                                                            <option selected value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                                @break
+                                                                                                            @else
+                                                                                                            <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                                @break
+                                                                                                            @endif
+                                                                                                        @endif
+                                                                                                        @endforeach
+                                                                                                    @endforeach
+                                                                                                @else 
+                                                                                                @foreach ($members as $member)
+                                                                                                @if ($member['role'] == 'user')
+                                                                                                    
+                                                                                                <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                @endif
+                                                                                                @endforeach
+                                                                                                @endif
+                                                                                               
+                                                                                                
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -329,10 +377,34 @@
                                                                                     
                                                                                         <div class="form-control-wrap">
                                                                                             <select name="viewer[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                                                                                @foreach ($d['members'] as $member )
-                                                                                                <option {{ $member['roles'] == 'viewer' && $member['member']['user_id'] == 1 ? 'selected' : '' }} value="1">Takane</option>
-                                                                                                <option {{ $member['roles'] == 'viewer' && $member['member']['user_id'] == 2 ? 'selected' : '' }} value="2">Haruka</option>   
+
+                                                                                                @if ($d['members'])      
+                                                                                                    @php  
+                                                                                                        $memberOfProject = $d['members']
+                                                                                                    @endphp
+                                                                                                    @foreach ($members as $member)
+                                                                                                        @foreach ($memberOfProject as $item)
+                                                                                                            @if($member['role'] == 'viewer')
+                                                                                                            @if($item['member_id'] == $member['user_id'])
+                                                                                                            <option selected value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                                @break
+                                                                                                            @else
+                                                                                                            <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                                @break
+                                                                                                            @endif
+                                                                                                        @endif
+                                                                                                        @endforeach
+                                                                                                    @endforeach
+                                                                                                @else 
+                                                                                                @foreach ($members as $member)
+                                                                                                @if ($member['role'] == 'viewer')
+                                                                                                    
+                                                                                                <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                                                                                @endif
                                                                                                 @endforeach
+                                                                                                @endif
+                                                                                               
+                                                                                               
                                                                                                                                    
                                                                                                                            
                                                                                             </select>
@@ -345,9 +417,34 @@
                                                                                         
                                                                                         <div class="form-control-wrap">
                                                                                             <select name="team[]"class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                                                                                @foreach ( $d['team'] as $team )
-                                                                                                <option {{ $team['team_id'] == 1 ? 'selected' : '' }}  value="AOmega">AOmega</option>                                       
+                                                                                                @if ($d['team'])      
+                                                                                                @php  
+                                                                                                    $teamOfProject = $d['team']
+                                                                                                @endphp
+                                                                                                @foreach ($teams as $team)
+                                                                                                    @foreach ($teamOfProject as $item)
+                                                                                                       
+                                                                                                        @if($item['team_id'] == $team['id'])
+                                                                                                        <option selected value="{{ $team['id'] }}">{{ $team['name'] }}</option>
+                                                                                                            @break
+                                                                                                        @else
+                                                                                                        <option value="{{ $team['id'] }}">{{ $team['name'] }}</option>
+                                                                                                            @break
+                                                                                                        @endif
+                                                                                                    
+                                                                                                    @endforeach
                                                                                                 @endforeach
+                                                                                            @else 
+                                                                                            @foreach ($teams as $team)
+                                                                                           
+                                                                                                
+                                                                                            <option value="{{ $team['id'] }}">{{ $team['id'] }}</option>
+                                                                                      
+                                                                                            @endforeach
+                                                                                            @endif
+                                                                                                {{-- @foreach ( $d['team'] as $team )
+                                                                                                <option {{ $team['team_id'] == 1 ? 'selected' : '' }}  value="AOmega">AOmega</option>                                       
+                                                                                                @endforeach --}}
                                                                                                
                                                                                             </select>
                                                                                         </div>
@@ -567,9 +664,14 @@
                                 
                                     <div class="form-control-wrap">
                                         <select name="manager[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                            
-                                            <option value="1">Takane</option>
-                                            <option value="2">Haruka</option>                                       
+                                            @foreach ($members as $member)
+                                            @if ($member['role'] == 'manager')
+                                                
+                                            <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                            @endif
+                                                
+                                            @endforeach
+                                                                                 
                                      
                                         </select>
                                     </div>
@@ -579,9 +681,13 @@
                                 
                                     <div class="form-control-wrap">
                                         <select name="user[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
-                                            
-                                            <option value="1">Takane</option>
-                                            <option value="2">Haruka</option>                                       
+                                            @foreach ($members as $member)
+                                            @if ($member['role'] == 'user')
+                                                
+                                            <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                            @endif
+                                                
+                                            @endforeach                                  
                                                                        
                                         </select>
                                     </div>
@@ -592,8 +698,13 @@
                                     <div class="form-control-wrap">
                                         <select name="viewer[]" class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">
                                             
-                                            <option value="1">Takane</option>
-                                            <option value="2">Haruka</option>                                       
+                                            @foreach ($members as $member)
+                                            @if ($member['role'] == 'viewer')
+                                                
+                                            <option value="{{ $member['user_id'] }}">{{ $member['name'] }}</option>
+                                            @endif
+                                                
+                                            @endforeach                                   
                                                                        
                                         </select>
                                     </div>
@@ -604,8 +715,10 @@
                                     <label class="form-label">Team</label>
                                 
                                     <div class="form-control-wrap">
-                                        <select name="team[]"class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">                     
-                                            <option value="1">Summer</option>                                       
+                                        <select name="team[]"class="form-select js-select2" multiple="multiple" data-placeholder="Select Multiple options">                    
+                                            @foreach ($teams as $team)
+                                            <option value="{{ $team['id'] }}">{{ $team['name'] }}</option>                                       
+                                            @endforeach 
                                         </select>
                                     </div>
                                 </div>
@@ -614,6 +727,7 @@
                     </div>
                     <div class="modal-footer bg-light">
                         <a href="#" data-bs-dismiss="modal" aria-label="Close" class="btn btn-outline-secondary">Cancel</a>
+                        
                         <button href="#" type="submit"  class="btn btn-info">Save</button>
                     </div>
                 </form>

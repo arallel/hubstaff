@@ -23,8 +23,14 @@ class ProjectController extends Controller
         $project_archives = Http::get(env('url_api').'/project/all');
         $archives = $project_archives->json();
         $archive = collect($archives)->where('project_status','=','1');
+
+        $member_response = Http::get(env('url_api').'/members/all');
+        $members = $member_response->json();
+
+        $team_response = Http::get(env('url_api') . '/teams/all');
+        $teams = $team_response->json();
        
-         return view('admin.project.project-all',compact('data','archive')); 
+         return view('admin.project.project-all',compact('data','archive','members','teams')); 
 
     }
     public function archive()
@@ -58,6 +64,7 @@ class ProjectController extends Controller
             'viewer' => $request->viewer,
             'team' => $request->team,
             'start' => $start,
+            'reset' => $request->reset,
             'non_billable_time' => $request->non_billable_time
         ]);
         // return $data;
@@ -70,9 +77,10 @@ class ProjectController extends Controller
         if ($request->client_id == 'null') {
             $request->client_id = null;
         }
+        return $request;
         $data = Http::patch(env('url_api').'/project/update/' . $project_id, [
             'project_name' => $request->project_name,
-            'descriptoin' => $request->description,
+            'description' => $request->description,
             'billable' => $request->billable,
             'record_activity' => $request->record_activity,
             'client_id' => $request->client_id,
@@ -86,6 +94,7 @@ class ProjectController extends Controller
             'viewer' => $request->viewer,
             'team' => $request->team,
             'start' => $start,
+            'reset' => $request->reset,
             'non_billable_time' => $request->non_billable_time
         ]);
         return $data;

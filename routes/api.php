@@ -6,6 +6,8 @@ use App\Http\Controllers\API\ProjectApiController;
 use App\Http\Controllers\Api\membersApiController;
 use App\Http\Controllers\Api\TodosApiController;
 use App\Http\Controllers\Api\clientApiController;
+use App\Http\Controllers\Api\TeamApiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,4 +53,8 @@ Route::controller(clientApiController::class)->group(function () {
     Route::post('/client/store', 'store');
     Route::patch('/client/update/{client_id}', 'update');
     Route::delete('/client/delete/{client_id}', 'destroy');
+});
+Route::controller(TeamApiController::class)->group(function () {
+    Route::get('/teams/all', 'index');
+  
 });

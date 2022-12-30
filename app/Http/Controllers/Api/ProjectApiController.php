@@ -35,7 +35,7 @@ class ProjectApiController extends Controller
             'notify_at' => $request->notify_at,
             'project_status' => '0',
             'start' => $request->start,
-            'reset' => 'never',
+            'reset' => $request->reset,
             'non_billable_time' => $request->non_billable_time,
         ]);
 
@@ -83,6 +83,21 @@ class ProjectApiController extends Controller
     }
     public function update(Request $request,Project $project_id)
     {
+        // $data = Project::create([
+        //     'project_name' => $request->project_name,
+        //     'description' => $request->description,
+        //     'billable' => $request->billable,
+        //     'record_activity' => $request->record_activity,
+        //     'client_id' => $request->client_id,
+        //     'budget_type' => $request->budget_type,
+        //     'budget_based' => $request->budget_based,
+        //     'budget' => $request->budget,
+        //     'notify_at' => $request->notify_at,
+        //     'project_status' => '0',
+        //     'start' => $request->start,
+        //     'reset' => 'never',
+        //     'non_billable_time' => $request->non_billable_time,
+        // ]);
        
         $this->validate($request,[
             'project_name'  => 'required'
@@ -93,6 +108,13 @@ class ProjectApiController extends Controller
               'billable' => $request->billable,
               'record_activity' => $request->record_activity,
               'client_id' => $request->client_id,
+              'budget_type' => $request->budget_type,
+              'budget_based' => $request->budget_based,
+              'budget' => $request->budget,
+              'notify_at' => $request->notify_at,
+              'reset' => $request->reset,
+              'start' => $request->start,
+              'non_billable_time' => $request->non_billable_time,
           ]);
           return ['data' => $project_id];
        
