@@ -3,9 +3,9 @@
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
             <a href="html/index.html" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="{{ asset('images/logo.png') }}" srcset="{{ asset('images/logo2x.png') }}" alt="logo">
-                <img class="logo-dark logo-img" src="{{ asset('images/logo-dark.png') }}" srcset="{{ asset('images/logo-dark2x.png') }}" alt="logo-dark">
-                <img class="logo-small logo-img logo-img-small" src="{{ asset('images/logo-small.png') }}" srcset="{{ asset('images/logo-small2x.png') }}" alt="logo-small">
+                <img class="logo-light logo-img logo-img-lg"  src="{{ asset('images/hubstaff-logo.png') }}"  alt="logo">
+                <img class="logo-dark logo-img logo-img-lg" src="{{ asset('images/hubstaff-logo.png') }}" alt="logo-dark">
+                <img class="logo-small logo-img logo-img-small" src="{{ asset('images/hubstaff_logo_sm.png') }}" alt="logo-small">
             </a>
         </div>
         <div class="nk-menu-trigger me-n2">

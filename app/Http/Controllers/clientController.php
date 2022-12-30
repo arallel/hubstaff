@@ -91,6 +91,7 @@ class clientController extends Controller
      */
     public function update(Request $request, $client_id)
     {
+        
        $data = Client::findOrFail($client_id);
        $data->update([
         'client_name' => $request->client_name,

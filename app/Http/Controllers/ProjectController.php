@@ -23,14 +23,8 @@ class ProjectController extends Controller
         $project_archives = Http::get(env('url_api').'/project/all');
         $archives = $project_archives->json();
         $archive = collect($archives)->where('project_status','=','1');
-
-        $member_response = Http::get(env('url_api').'/members/all');
-        $members = $member_response->json();
-
-        $team_response = Http::get(env('url_api') . '/teams/all');
-        $teams = $team_response->json();
        
-         return view('admin.project.project-all',compact('data','archive','members','teams')); 
+         return view('admin.project.project-all',compact('data','archive')); 
 
     }
     public function archive()
