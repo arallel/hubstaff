@@ -143,7 +143,7 @@
                                         browser
                                         address bar.</p>
                                     <a
-                                        href="{{ route('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}">{{ url('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}</a><br>
+                                        href="{{ url('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}">{{ url('http://127.0.0.1:8000/invitation/' . $invitational->token . '/' . $invitational->company) }}</a><br>
                                 </td>
                             </tr>
                             <tr>

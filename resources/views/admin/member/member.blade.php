@@ -27,8 +27,7 @@
                                     </ul>
                                     <div class="row">
                                         <div class="col-3 mt-5">
-                                            <input type="text" class="form-control rounded-pill"
-                                                placeholder="Search projects" name="" id="">
+                                            
                                         </div>
                                         <div class="col-9 mt-5 text-end">
                                             {{-- <button class="btn btn-info" data-toggle="modal" data-target="#newProject">New
